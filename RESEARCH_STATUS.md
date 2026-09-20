@@ -10,23 +10,35 @@ Date: 2026-09-20
 - Spectral/operator route: ACTIVE RESEARCH
 - Finite-to-infinite convergence: CRITICAL OPEN GAP
 - Finite Guinand–Weil dictionary: EXTERNAL THEOREM UNDER AUDIT
-- Globalization/density of the finite test-function family: OPEN
+- Full unrestricted globalization: OPEN
+- Fixed-support factor approximation: DERIVED SUBTARGET / OPEN BRIDGE
 - Numerical computation: SUPPORTING EVIDENCE ONLY
 - Independent verification: REQUIRED
 
 ## Current frontier
 
-The finite-level problem has been sharpened. Groskin (arXiv:2607.02828v3) supplies an exact finite dictionary between the audited Galerkin construction and a corresponding band-limited Guinand–Weil test-function family, plus a positive archimedean tail theorem. This removes a major ambiguity at the finite level.
+The finite-level problem has been sharpened. Groskin (arXiv:2607.02828v3) supplies an exact finite dictionary between the audited Galerkin construction and a corresponding band-limited Guinand–Weil test-function family, plus a positive archimedean tail theorem. The paper explicitly does not claim realization of arbitrary admissible test functions.
 
-The remaining bottleneck is **globalization**, not merely eigenvalue convergence:
+A stronger structural observation now narrows the global problem further: Weil positivity can be formulated using compactly supported factors, and for a fixed support window only finitely many prime-power terms contribute. Therefore the prime cutoff need not be sent to infinity for one fixed test function; the remaining limit is primarily the frequency/factor approximation limit.
 
-1. establish the exact normalization bridge used by this repository;
-2. prove that the finite test-function families are sufficient for the full Weil criterion, or replace them with a provably sufficient class;
-3. prove convergence of the quadratic form under the required joint limits in prime cutoff, frequency band, and archimedean cutoff;
-4. preserve all admissibility, pole, and moment constraints;
-5. apply a valid closure/limit argument to obtain global Weil positivity.
+## Active proof program
 
-The external theorem explicitly does not claim that arbitrary admissible Guinand–Weil test functions are realized by the finite dictionary. Therefore increasing the finite dimension cannot be treated as density without a separate theorem.
+1. **Finite dictionary audit:** verify the exact normalization, signs, and hypotheses independently.
+2. **Fixed-support factor space:** identify the exact target factor space in the Weil criterion and its rescaling to the finite Volterra construction.
+3. **Cosine-polynomial approximation:** prove density of the finite even Galerkin factors in the chosen smooth compact-support core.
+4. **Nonlinear continuity:** prove continuity of the Volterra/convolution map under the selected norm.
+5. **Constraint correction:** impose pole/moment constraints exactly at finite N and prove the correction vanishes in the limit.
+6. **Weil-form continuity:** establish convergence of prime and archimedean contributions under the same approximants.
+7. **Positivity closure:** use the proved pointwise quadratic-form closure lemma once the common admissible approximation sequence is established.
+8. **Global support exhaustion:** only after the fixed-window theorem is closed, extend to all compact supports required by the external Weil criterion.
+
+## What remains the principal bottleneck
+
+The decisive unresolved statement is now:
+
+> Every admissible compact-support Weil factor can be approximated, after the exact normalization/rescaling, by the finite Galerkin factor space in a topology that preserves the pole/moment constraints and makes the Weil quadratic form continuous.
+
+This is narrower than unrestricted density of the full Guinand–Weil test-function class, but it is still unproved.
 
 ## Status semantics
 
