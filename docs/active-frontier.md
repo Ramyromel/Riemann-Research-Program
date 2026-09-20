@@ -43,3 +43,16 @@ This target is narrower, falsifiable, and compatible with the current frontier.
 ## Status
 
 All findings above are external research inputs. They are not results of this repository.
+
+## Finding F5 — A new spectral-operator bridge is now an explicit audit target
+
+The external Connes/Groskin series now includes a sine-Loewner operator paper with infinite-dimensional spectral theorems, uniform trace laws, and explicit boundary interaction. The upstream work explicitly makes no RH claim.
+
+Project consequence: the spectral route is split into two independently testable layers:
+
+1. **Weil positivity:** prove the global sign theorem and its limit;
+2. **Spectral identification:** prove that a limiting operator/spectral measure is exactly the zeta-zero object required by the explicit formula.
+
+A trace law, self-adjointness, or numerical zero matching is insufficient for the second layer. The new audit therefore requires operator convergence, arithmetic identification, spectral-measure identification, boundary control, and domain/limit control.
+
+See `research-log/2026-09-20-spectral-operator-bridge-audit.md`.
