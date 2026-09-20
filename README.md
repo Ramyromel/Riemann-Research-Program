@@ -31,7 +31,6 @@ Investigate whether a rigorously controlled finite spectral/positivity construct
 
 This is an open research question, not an asserted result.
 
-
 ## Public research status
 
 **PUBLIC EXPERIMENTAL RESEARCH REPOSITORY — NO RH PROOF CLAIMED**
@@ -48,9 +47,18 @@ The project distinguishes external theorems, repository-derived results, numeric
 
 **Important:** finite numerical verification, spectral matching, finite-dimensional positivity, or an operator construction is not by itself a proof of the Riemann Hypothesis.
 
+## Independent-review framework
+
+The repository now includes a dedicated review layer:
+
+- [Formal Proof Guidelines](docs/formal-proof-guidelines.md) — exact proof-boundary and function-space requirements.
+- [Reproducibility Suite](verification/reproducibility/README.md) — computational reproducibility and independent-recomputation requirements.
+- [Adversarial Counterexample Challenges](verification/adversarial/counterexample-challenges.md) — explicit attempts to falsify the finite-to-global, coverage, sector, spectral, and numerical claims.
+
+These documents are deliberately designed to make the program easier to audit and harder to overclaim.
+
 ### Release audit
 
 The 2026-09-20 public-release audit is recorded in [research-log/2026-09-20-public-release-audit.md](research-log/2026-09-20-public-release-audit.md).
 
 Current active research branch: `main`.
-
