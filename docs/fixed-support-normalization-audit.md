@@ -1,116 +1,74 @@
 # Fixed-Support Normalization Audit
 
-**Status:** OPEN — exact normalization bridge under construction
+**Status:** SUBSTANTIALLY RESOLVED AT THE FINITE FACTOR LEVEL; GLOBAL POSITIVITY REMAINS OPEN
 
-## Purpose
-
-The previous research step correctly reduced the globalization problem to a fixed-support factor problem, but it used schematic notation. This document prevents that notation from being mistaken for an established identification.
-
-## 1. Two formulations that must be connected
-
-A standard Weil formulation can be written on the multiplicative group \(\mathbb R_+^*\), with a smooth compactly supported factor \(f\) and autocorrelation
-
+Fix \(c>1\), \(L=\log c\), \(\Delta=L/(2\pi)\), and \(\rho=2\pi/L\). On \([0,L]\) use \(U_n(x)=L^{-1/2}e^{2\pi i n x/L}\). For the real-even sector,
 \[
-g=f*f^*,\qquad f^*(x)=\overline{f(x^{-1})}.
+u_0=v_0,\qquad u_k=u_{-k}=v_k/\sqrt2,
+\]
+and
+\[
+T_v(t)=\sum_{m=-N}^{N}u_me^{2\pi imt},\qquad
+f_v(x)=L^{-1/2}T_v(x/L).
 \]
 
-In logarithmic coordinates \(x=e^u\), multiplicative convolution becomes additive convolution after the appropriate Haar-measure normalization.
-
-A Fourier/Mellin transform then converts the multiplicative test object into the zero-side quantity.
-
-Separately, the finite Groskin construction starts with a finite real-even Galerkin coefficient vector, constructs a finite factor/kernel through a Volterra-type convolution, and obtains a band-limited Guinand–Weil function.
-
-These are structurally similar, but **similarity is not identity**.
-
-## 2. Exact bridge required
-
-The project must explicitly construct maps
-
+The exact Volterra map is
 \[
-f
-\xrightarrow{\;\mathcal L\;}
-T
-\xrightarrow{\;P_N\;}
-T_N
-\xrightarrow{\;V\;}
-K_N
-\xrightarrow{\;\mathcal F^{-1}/\mathcal M^{-1}\;}
-g_N,
+K_v(\omega)=2\int_0^\omega T_v(t)T_v(\omega-t)\,dt,
+\]
+\[
+\widehat g_v(\xi)=\pi K_v(1-|\xi|/\Delta)\quad(|\xi|\le\Delta),
+\]
+with zero extension outside the band, and
+\[
+g_v(z)=\int_{-\Delta}^{\Delta}\widehat g_v(\xi)e^{2\pi iz\xi}\,d\xi.
 \]
 
-and prove that the resulting \(g_N\) is the same normalized test object used by the finite theorem.
-
-The proof must specify:
-
-- multiplicative Haar measure versus logarithmic Lebesgue measure;
-- Fourier transform sign and \(2\pi\) convention;
-- Mellin transform convention;
-- location of the \(1/2\) shift;
-- involution \(f^*\);
-- even-sector normalization;
-- the exact support rescaling;
-- prime cutoff convention;
-- pole-neutral constraints;
-- sign convention for the Weil quadratic form.
-
-## 3. Pole constraints
-
-The standard positivity formulation imposes vanishing at the two pole directions. In logarithmic coordinates these become two explicit linear functionals of the factor.
-
-For a finite approximation, the project must not merely show approximate vanishing. It must either:
-
-1. construct \(T_N\) inside the exact finite nullspace; or
-2. apply a finite-rank projection \(P_N^{\mathrm{constr}}\) and prove
-
+The corresponding multiplicative object is \(F_v(x)=q(f_v,f_v)(\log x)\). Thus the earlier schematic bridge is now explicit:
 \[
-\|P_N^{\mathrm{constr}}T-T_N\|\to0.
+v\to T_v\to f_v\to q(f_v,f_v)\to\widehat g_v\to g_v.
 \]
 
-The second route requires lower bounds on the relevant finite constraint matrix. If those bounds fail, the correction may not vanish.
-
-## 4. Fixed support and prime terms
-
-For a compactly supported multiplicative test function, the explicit-formula prime-power contribution is finite because only prime powers whose logarithms lie in the transformed support can contribute. This is an external structural fact, not a numerical observation.
-
-Therefore, for a **fixed target support**, the arithmetic part does not require a separate infinite-prime limit.
-
-The remaining analytic limit is the approximation of the target factor and the archimedean contribution.
-
-## 5. Form-continuity target
-
-Let \(Q\) denote the exact Weil quadratic form in one fixed normalization.
-
-The required theorem is:
-
+For the divided-difference matrix
 \[
-T_N\to T\text{ in }\tau
-\quad\Longrightarrow\quad
-Q(g_{T_N})\to Q(g_T).
+(Q_\psi)_{mn}=
+\begin{cases}
+(\psi(m)-\psi(n))/(m-n),&m\ne n,\\
+\psi'(m),&m=n,
+\end{cases}
+\]
+the prime, pole and archimedean blocks assemble to
+\[
+Q_\infty=Q_{\rm prime}^{(c)}+Q_{\rm pole}+Q_{\rm arch,\infty}.
 \]
 
-A sufficient route is:
+Groskin's finite dictionary gives, for real-even \(v\),
+\[
+\langle v,Q_\infty v\rangle
+=
+\sum_{\rho\in Z_\zeta^*}g_v(z_\rho),
+\]
+equivalently
+\[
+\langle v,Q_\infty v\rangle
+=
+-\frac1\pi\sum_{q=p^a\le c}\frac{\Lambda(q)}{\sqrt q}
+\widehat g_v\!\left(\frac{\log q}{2\pi}\right)
++2g_v(i/2)
++\frac1{2\pi}\int_{\mathbb R}h_+(r)g_v(r)\,dr.
+\]
 
-- finite prime terms converge directly;
-- Fourier/Mellin transforms converge in a norm giving an integrable majorant;
-- the archimedean term converges by dominated convergence;
-- all pole/moment constraints hold exactly.
+This is an exact finite-level identity, not a numerical approximation. The primary normalization ambiguities—\(L=\log c\), Haar/log scaling, Fourier \(2\pi\) convention, the \(1/2\) shift, basis normalization, Volterra normalization, prime cutoff, and sign convention—are therefore no longer the principal blocker.
 
-No uniform spectral gap is required for the final sign-closure step if the same target test object is approached pointwise by positive quadratic forms.
+The standard Weil formulation has two pole-neutral moment constraints. The finite construction contains an exact pole-neutral subspace, and the even-sector density lemma now supplies a fixed-window constrained approximation mechanism.
 
-## 6. Current finding
-
-The finite factor approximation argument is **not yet a proof of the Weil criterion** because the exact map from the standard Weil factor to Groskin's normalized finite factor has not been instantiated line by line.
-
-This is now the next mathematical target.
-
-## Classification
-
-- Fixed-support finite-prime reduction: **DERIVED FROM EXTERNAL WEIL FORMULATION**
-- Finite cosine approximation: **STANDARD ANALYTIC FACT, SUBJECT TO THE CORRECT FUNCTION SPACE**
-- Volterra continuity: **DERIVED**
-- Constraint-preserving projection: **OPEN**
-- Exact Groskin/Weil normalization bridge: **OPEN**
-- Weil-form continuity under the exact bridge: **OPEN**
-- Global RH implication: **OPEN**
-
-No RH claim is made.
+**Revised classification**
+- Finite normalization bridge: VERIFIED AGAINST PRIMARY FORMULAS / EXTERNAL THEOREM
+- Finite dictionary: EXTERNAL THEOREM UNDER PROJECT AUDIT
+- Even constrained density: DERIVED
+- Volterra/convolution continuity: DERIVED
+- Fixed-support finite-prime reduction: DERIVED
+- Odd-sector finite dictionary/density: OPEN
+- Even finite positivity: OPEN
+- Global Weil positivity: OPEN
+- RH: OPEN
