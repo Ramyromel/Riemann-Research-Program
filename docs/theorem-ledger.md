@@ -72,17 +72,45 @@ Recent work gives certified positivity bounds for certain compact-support window
 
 **Status:** OPEN RESEARCH TARGET.
 
-This is now the principal mathematical gap.
+This remains the principal mathematical gap.
 
 ### Required ingredients
 
 1. Exact finite form.
 2. Exact limiting form.
 3. Explicit normalization bridge.
-4. Density/globalization of the finite test-function family.
+4. Globalization of the finite test-function family.
 5. Convergence of the Weil quadratic form on the approximating sequence.
 6. Preservation of all pole/moment/admissibility constraints.
 7. A valid semidefinite-limit or quantitative error argument.
 8. Explicit ordering or joint control of \(c,N,T\).
 
 Until these are proved, finite positivity cannot be promoted to RH.
+
+### T-006A — Autocorrelation-factor globalization subtarget
+
+**Status:** DERIVED RESEARCH TARGET / NOT PROVED.
+
+The project now attacks a narrower question suggested by the structure of Weil positivity and the finite Volterra construction:
+
+> Is a dense core of admissible positivity factors \(f\) approximable by finite Galerkin factors \(f_N\) so that the induced autocorrelations \(g_N=f_N*\widetilde{f_N}\) remain admissible and satisfy \(Q(g_N)\to Q(g)\)?
+
+This is strictly weaker than unrestricted density of the complete Guinand–Weil test-function class, but it is only useful if the exact factorization, constraint preservation, and form continuity are proved.
+
+**Required proof obligations:**
+
+1. Exact identification of the finite factor space behind \(v\mapsto g_v\).
+2. Density of that factor space in a suitable admissible core, or a counterexample.
+3. Exact/controlled preservation of pole and moment constraints.
+4. Continuity of the Volterra/convolution map in the chosen topology.
+5. Continuity of the Weil quadratic form along the approximants.
+6. Compatibility with the prime cutoff \(c\) and archimedean limit.
+7. Independent verification of every imported normalization.
+
+**Hard stop:** numerical reproduction of known zeta zeros, matrix spectral convergence, or empirical density is not sufficient for T-006A.
+
+---
+
+## Status rule
+
+No node may be promoted to **PROVED** merely because a numerical experiment is stable or because an external paper states a stronger result. Every imported theorem must have its exact hypotheses and normalization instantiated before it can serve as a project proof dependency.
