@@ -30,3 +30,27 @@ A mathematically attractive construction is not a theorem. Numerical agreement i
 Investigate whether a rigorously controlled finite spectral/positivity construction can be connected to the full Weil object in a limit that preserves the required positivity and identifies the resulting spectrum with the non-trivial zeros of the Riemann zeta function.
 
 This is an open research question, not an asserted result.
+
+
+## Public research status
+
+**PUBLIC EXPERIMENTAL RESEARCH REPOSITORY — NO RH PROOF CLAIMED**
+
+This repository is intentionally open for:
+
+- reproducible experiments;
+- mathematical derivations and lemma audits;
+- adversarial attempts to find counterexamples or proof gaps;
+- independent verification of computational and analytic results;
+- discussion of alternative routes to the Riemann Hypothesis.
+
+The project distinguishes external theorems, repository-derived results, numerical evidence, verified results, and complete proofs. See [RESEARCH_INTEGRITY.md](RESEARCH_INTEGRITY.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [RESEARCH_STATUS.md](RESEARCH_STATUS.md).
+
+**Important:** finite numerical verification, spectral matching, finite-dimensional positivity, or an operator construction is not by itself a proof of the Riemann Hypothesis.
+
+### Release audit
+
+The 2026-09-20 public-release audit is recorded in [research-log/2026-09-20-public-release-audit.md](research-log/2026-09-20-public-release-audit.md).
+
+Current active research branch: `main`.
+
