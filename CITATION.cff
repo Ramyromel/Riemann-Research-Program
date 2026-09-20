@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "Riemann Research Program"
+message: "If you use this repository in research, please cite it."
+type: software
+authors:
+  - family-names: Ghonem
+    given-names: Ibrahim
+repository-code: "https://github.com/Ramyromel/Riemann-Research-Program"
+url: "https://github.com/Ramyromel/Riemann-Research-Program"
+license: MIT
+version: "0.1.0"
+date-released: "2026-09-20"
+keywords:
+  - Riemann Hypothesis
+  - Riemann zeta function
+  - Weil positivity
+  - spectral methods
+  - mathematical research
+  - reproducible computation
