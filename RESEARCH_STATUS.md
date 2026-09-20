@@ -11,43 +11,35 @@ Date: 2026-09-20
 - Finite Guinand–Weil dictionary: **EXTERNAL THEOREM UNDER PROJECT AUDIT**
 - Fixed-support normalization: **SUBSTANTIALLY RESOLVED**
 - Even-sector fixed-support factor approximation: **DERIVED**
-- Even-sector finite positivity: **OPEN / LOAD-BEARING**
+- External finite positivity at (c,N)=(100,200): **REPRODUCIBILITY INPUT / NOT GLOBAL**
+- Even-sector finite positivity for all parameters: **OPEN / LOAD-BEARING**
 - Odd-sector dictionary/positivity: **OPEN**
 - Full Weil positivity: **OPEN**
 - Numerical computation: **SUPPORTING EVIDENCE ONLY**
 - Independent verification: **REQUIRED**
 
-## New frontier
+## New external anchor
 
-The normalization bridge is now instantiated against the primary formulas of Groskin's finite dictionary and the Connes–van Suijlekom Galerkin formulation.
+The Groskin reproducibility package contains a cutoff-free interval-LDL^T inertia certificate at c=100, N=200, dimension 401, reporting n_pos=401 and n_neg=0. The package documents the 9000-bit Arb run, self-test, and independent mpmath recomputation.
 
-For fixed \(L=\log c\), a smooth compactly supported factor in the interior of the window has a smooth periodic extension. Fourier partial sums therefore give finite Galerkin approximants converging in every \(C^m\) norm. Two pole constraints can be enforced exactly by a fixed two-dimensional correction because the corresponding moment functionals are linearly independent.
+This is strong finite evidence and a useful calibration point, but it is not a theorem for all c,N and does not imply RH. The upstream paper explicitly makes no RH or global Weil-positivity claim.
 
-This substantially reduces the former unrestricted density gap for the **even sector**.
+## Structural direction now prioritized
 
-The autocorrelation map is continuous under the same approximation, and fixed support leaves only finitely many prime-power terms. High-order integration by parts supplies the archimedean continuity needed for the fixed-window limit.
+A companion Groskin result identifies the prime-power derivative jumps of the finite matrix path exactly as negative rank-one von Mangoldt events, while the second-derivative jump is positive semidefinite. This arithmetic structure is now treated as a potential route to a global positivity decomposition, not as positivity itself.
 
-## Current load-bearing gap
-
-The central unresolved theorem is now:
-
-> Can the cutoff-free finite Weil matrices be shown positive for the entire admissible finite family, without assuming RH?
-
-If yes, the derived even-sector approximation theorem supplies the passage to the even fixed-support Weil criterion.
-
-A separate odd-sector construction is still required for the full unrestricted criterion.
+The next target is therefore a structural factorization or monotonicity theorem for the complete cutoff-free matrix path, with the archimedean and pole pieces included.
 
 ## Active execution order
 
-1. Independently reproduce the exact finite dictionary formulas.
-2. Formalize and test the even-sector density lemma.
-3. Build an interval-arithmetic implementation of \(Q_\infty(c,N)\).
-4. Search for a symbolic positivity factorization of the cutoff-free finite matrices.
-5. Use compact-window certificates as calibration only.
-6. Derive the odd-sector finite dictionary and its constraint structure.
-7. Attempt a parity-complete finite positivity theorem.
-8. Assemble the full Weil criterion only after both parity sectors and the limiting argument are closed.
+1. Reproduce and independently audit the external finite positivity certificate.
+2. Extract the exact finite matrix formula and its prime-power path derivative structure.
+3. Test candidate positive-kernel / Gram / Loewner representations symbolically.
+4. Determine whether the negative rank-one prime jumps can be compensated by an analytically positive archimedean/pole structure on the pole-neutral subspace.
+5. Search for a uniform-in-(c,N) inequality, not isolated eigenvalue positivity.
+6. Extend the analysis to the odd sector.
+7. Assemble the full Weil criterion only after the sign theorem and limiting argument are closed.
 
 ## Hard stop
 
-No numerical zero matching, spectral convergence, or finite positive-definiteness result may be promoted to a proof of RH without an analytic theorem covering all required parameters and the final limit.
+No finite certificate, zero matching, spectral convergence, or numerical stability result may be promoted to a proof of RH without an analytic theorem covering all required parameters and the final limit.
