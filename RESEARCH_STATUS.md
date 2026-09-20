@@ -7,7 +7,7 @@ Date: 2026-09-20
 - Riemann Hypothesis: **OPEN**
 - Complete proof in repository: **NONE**
 - Weil positivity route: **ACTIVE RESEARCH**
-- Spectral/operator route: **ACTIVE RESEARCH**
+- Spectral/operator route: **ACTIVE RESEARCH — BRIDGE AUDIT ADDED**
 - Finite Guinand–Weil dictionary: **EXTERNAL THEOREM UNDER PROJECT AUDIT**
 - Fixed-support normalization: **SUBSTANTIALLY RESOLVED**
 - Even-sector fixed-support factor approximation: **DERIVED**
@@ -30,6 +30,10 @@ A companion Groskin result identifies the prime-power derivative jumps of the fi
 
 The next target is therefore a structural factorization or monotonicity theorem for the complete cutoff-free matrix path, with the archimedean and pole pieces included.
 
+## New spectral bridge target
+
+A dedicated audit now separates operator convergence, arithmetic identification, spectral-measure identification, boundary control, and infinite-dimensional domain control. This is complementary to the finite positivity route and carries no RH inference by itself.
+
 ## Active execution order
 
 1. Reproduce and independently audit the external finite positivity certificate.
@@ -38,7 +42,8 @@ The next target is therefore a structural factorization or monotonicity theorem 
 4. Determine whether the negative rank-one prime jumps can be compensated by an analytically positive archimedean/pole structure on the pole-neutral subspace.
 5. Search for a uniform-in-(c,N) inequality, not isolated eigenvalue positivity.
 6. Extend the analysis to the odd sector.
-7. Assemble the full Weil criterion only after the sign theorem and limiting argument are closed.
+7. Audit the sine-Loewner/operator bridge against the exact finite Weil construction.
+8. Assemble the full Weil criterion only after the sign theorem and limiting argument are closed.
 
 ## Hard stop
 
