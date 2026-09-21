@@ -94,3 +94,16 @@ The decisive tests remain:
 5. exact identification of the limiting spectral measure with the zeta-zero measure.
 
 A finite spectrum reconstructed from supplied ordinates is a control experiment, not evidence of RH.
+
+
+## Finding F8 — Prime-intersection / distance route is now an independent falsifiable track
+
+A new research lead proposes using the affine transform (F(x)=2x-1), additional prime-range functions, and intersection/distance geometry as a possible arithmetic signal.
+
+The exact first check is negative for the transform alone: (F) maps integers to odd integers and rescales pairwise distances by 2. Therefore raw transformed gaps are not a new invariant. The route becomes nontrivial only if prime-power weights such as (Lambda(n)), logarithmic coordinates, and an independently defined intersection/kernel functional introduce additional structure.
+
+**Project consequence:** test whether such a weighted intersection kernel has an exact Gram, Loewner, Hankel, Toeplitz, definiteness, or related spectral structure, and whether it symbolically reduces to or explains the existing finite Prime–Weil kernel. Known zeta zeros remain quarantined from the arithmetic construction.
+
+See `docs/prime-intersection-distance-route.md` and `research-log/2026-09-21-prime-intersection-distance-route.md`.
+
+**Status:** RESEARCH LEAD — NOT YET DERIVED; no RH claim.
