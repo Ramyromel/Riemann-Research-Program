@@ -104,3 +104,18 @@ L\int_0^1K_v(\omega)e^{-2La_n(1-\omega)}d\omega
 **Status:** DERIVED EXACT REPRESENTATION.
 
 **Limitation:** this is not a positivity theorem. The explicit anchor \(h_+(0)K_v(1)/2\) is negative for every nonzero real-even vector because \(h_+(0)<0\) and \(K_v(1)=2\|T_v\|_2^2>0\). Any proof must account for compensation by the remaining resolvent terms and prime sampling.
+
+
+### T-HP-001 — Finite Hilbert–Pólya Prime–Weil pencil
+
+A 2026 external construction (Yaoming Shi, arXiv:2609.04908) defines finite real-symmetric Prime–Weil matrices from pole, archimedean, and prime-power data and formulates a Hermitian definite generalized eigenproblem on a fixed zero-mean contrast space. The project adopts this as an **external candidate architecture under independent reconstruction**, not as an imported theorem proving RH.
+
+The repository's candidate finite Hamiltonian is represented abstractly by
+\[
+S_{N,c}x=\lambda G_Nx,\qquad G_N\succ0,
+\]
+with standard-form operator \(H_{N,c}=G_N^{-1/2}S_{N,c}G_N^{-1/2}\).
+
+**Status:** EXTERNAL RESEARCH INPUT + DERIVED PROJECT DESIGN.
+
+**Limitations:** exact reconstruction from this repository's normalization, arithmetic trace identity, infinite-dimensional operator convergence, spectral identification with zeta zeros, and exclusion of spurious spectrum remain OPEN. Zero-side interpolation using known ordinates is classified as reconstruction only.
