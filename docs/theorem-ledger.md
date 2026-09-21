@@ -67,3 +67,10 @@ At fixed Galerkin level, the cutoff-free finite prime block has negative-semidef
 
 ## Status rule
 No numerical spectral match, finite positive-definiteness result, or external claim may be promoted to PROVED without an analytic theorem covering all parameters and the final limiting argument.
+
+### T-006G — Pole-neutral cancellation of prime singular curvature
+On the exact real-even pole-neutral family, the all-ones rank-one direction in the prime-power derivative jump acts through the (M_0) moment. Since (M_0=0) on that family, the singular prime-power curvature vanishes identically after restriction. The independent pole quadratic is also an exact square in the pole-neutral row and therefore vanishes on the same family.
+
+**Status:** DERIVED — VERIFIED AGAINST EXTERNAL PRIMARY FORMULAS.
+
+**Limitation:** this removes only the singular prime curvature and pole block on the restricted family. The regular prime contribution and archimedean contribution remain load-bearing.
