@@ -65,8 +65,11 @@ Q_{\mathrm{arch},\infty}
 =
 \frac{h_+(0)}2K_v(1)
 +
-2\pi\sum_{n\ge0}\int_0^1K_v(\omega)
-\left[\frac1{n+1/4}-e^{-2L(n+1/4)(1-\omega)}\right]d\omega.
+\sum_{n\ge0}\left[
+\frac{K_v(1)}{2(n+1/4)}
+-
+L\int_0^1K_v(\omega)e^{-2L(n+1/4)(1-\omega)}d\omega
+\right].
 \]
 
 This is a derived identity, not a positivity claim. Its research consequence is that the negative anchor cannot be discarded: \(h_+(0)<0\) and \(K_v(1)>0\) for nonzero real-even \(v\).
