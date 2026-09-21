@@ -77,3 +77,20 @@ This is a derived identity, not a positivity claim. Its research consequence is 
 **Next target:** combine this resolvent kernel with the prime sampling measure on the exact pole-neutral/\(M_0=0\) space, either by a positive Gram/Schur representation or by a sharp compensating inequality.
 
 **Status:** F6 is DERIVED EXACT REPRESENTATION; combined restricted positivity remains OPEN / LOAD-BEARING.
+
+
+## Finding F7 — Direct finite Hilbert–Pólya matrix construction is now a concrete external benchmark
+
+Yaoming Shi's 2026 preprint *Construction of Finite Hilbert–Pólya Matrices from Weil's Explicit Formula* constructs finite real-symmetric Prime–Weil matrices from pole, archimedean, and finite prime-power data and uses a Hermitian definite generalized eigenproblem on a fixed zero-mean contrast space. The work explicitly distinguishes arithmetic construction from zero-side reconstruction and makes no RH proof claim. citeturn1academia0
+
+**Project consequence:** the Hilbert–Pólya route should no longer begin with an arbitrary Hamiltonian ansatz. It should first attempt an exact reconstruction of the published finite Prime–Weil pencil from this repository's already-audited finite Weil normalization.
+
+The decisive tests remain:
+
+1. exact agreement of matrix entries and quotient constraints;
+2. positive-definite metric and self-adjoint finite operator;
+3. prime-power trace identity without zero-dependent fitting;
+4. controlled \((N,c)\to\infty\) operator/spectral limit;
+5. exact identification of the limiting spectral measure with the zeta-zero measure.
+
+A finite spectrum reconstructed from supplied ordinates is a control experiment, not evidence of RH.
