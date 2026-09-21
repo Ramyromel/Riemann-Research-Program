@@ -87,7 +87,7 @@ Therefore the anchored summand contributes exactly
 \frac1a-\frac{a}{a^2+r^2/4}
 \right)g_v(r)\,dr
 =
-\frac1a\widehat g_v(0)
+\frac{\widehat g_v(0)}{2\pi a}
 -
 \int_{\mathbb R}
 e^{-4\pi a|\xi|}
@@ -130,14 +130,12 @@ Q_{\mathrm{arch},\infty}(v;c)
 =
 \frac{h_+(0)}{2}\,K_v(1)
 +
-2\pi\sum_{n=0}^{\infty}
-\int_0^1
-K_v(\omega)
+\sum_{n=0}^{\infty}
 \left[
-\frac1{a_n}
+\frac{K_v(1)}{2a_n}
 -
-e^{-2La_n(1-\omega)}
-\right]d\omega.
+L\int_0^1 K_v(\omega)e^{-2La_n(1-\omega)}d\omega
+\right].
 }
 \]
 
@@ -186,11 +184,12 @@ The restricted positivity problem can now be sharpened to an explicit kernel com
 +
 \frac{h_+(0)}2K_v(1)
 +
-2\pi\sum_{n=0}^{\infty}
-\int_0^1K_v(\omega)
+\sum_{n=0}^{\infty}
 \left[
-\frac1{a_n}-e^{-2La_n(1-\omega)}
-\right]d\omega
+\frac{K_v(1)}{2a_n}
+-
+L\int_0^1K_v(\omega)e^{-2La_n(1-\omega)}d\omega
+\right]
 \ge0
 \]
 for every nonzero admissible v in the exact pole-neutral family.
