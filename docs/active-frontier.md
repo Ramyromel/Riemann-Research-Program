@@ -56,3 +56,21 @@ Project consequence: the spectral route is split into two independently testable
 A trace law, self-adjointness, or numerical zero matching is insufficient for the second layer. The new audit therefore requires operator convergence, arithmetic identification, spectral-measure identification, boundary control, and domain/limit control.
 
 See `research-log/2026-09-20-spectral-operator-bridge-audit.md`.
+
+## Finding F6 — Archimedean resolvent structure sharpens the finite target
+
+The finite dictionary plus the digamma partial-fraction expansion gives an exact resolvent representation for the cutoff-free archimedean block:
+\[
+Q_{\mathrm{arch},\infty}
+=
+\frac{h_+(0)}2K_v(1)
++
+2\pi\sum_{n\ge0}\int_0^1K_v(\omega)
+\left[\frac1{n+1/4}-e^{-2L(n+1/4)(1-\omega)}\right]d\omega.
+\]
+
+This is a derived identity, not a positivity claim. Its research consequence is that the negative anchor cannot be discarded: \(h_+(0)<0\) and \(K_v(1)>0\) for nonzero real-even \(v\).
+
+**Next target:** combine this resolvent kernel with the prime sampling measure on the exact pole-neutral/\(M_0=0\) space, either by a positive Gram/Schur representation or by a sharp compensating inequality.
+
+**Status:** F6 is DERIVED EXACT REPRESENTATION; combined restricted positivity remains OPEN / LOAD-BEARING.
