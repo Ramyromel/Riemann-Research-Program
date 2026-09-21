@@ -30,9 +30,11 @@ Q_{\mathrm{arch},\infty}
 =
 \frac{h_+(0)}2K_v(1)
 +
-2\pi\sum_{n\ge0}\int_0^1
-K_v(\omega)
-\left[\frac1{a_n}-e^{-2La_n(1-\omega)}\right]d\omega.
+\sum_{n\ge0}\left[
+\frac{K_v(1)}{2a_n}
+-
+L\int_0^1K_v(\omega)e^{-2La_n(1-\omega)}d\omega
+\right].
 \]
 
 ## Important sign finding
