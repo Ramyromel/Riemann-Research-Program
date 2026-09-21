@@ -51,5 +51,12 @@ Combine parity sectors, form continuity, support exhaustion, and the external We
 
 **Status:** OPEN.
 
+### T-006E — Fixed-support positivity closure
+For a fixed admissible core, if finite generated admissible objects have nonnegative cutoff-free quadratic values and their quadratic values converge to the target Weil form, then target positivity follows by closedness of \([0,\infty)\). No positive spectral gap is required.
+
+**Status:** DERIVED. Proof recorded in docs/fixed-support-positivity-transfer-theorem.md.
+
+**Limitation:** this closes only the logical limit step. It does not prove finite positivity, finite-family density, normalization, odd-sector coverage, or RH.
+
 ## Status rule
 No numerical spectral match, finite positive-definiteness result, or external claim may be promoted to PROVED without an analytic theorem covering all parameters and the final limiting argument.
