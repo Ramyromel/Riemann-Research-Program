@@ -81,3 +81,26 @@ After imposing the exact even-sector pole-neutral constraints, the pole term van
 **Status:** DERIVED EXACT REDUCTION.
 
 **Limitation:** the sign of the combined restricted form remains open. No positive-kernel representation or uniform lower bound has yet been proved.
+
+### T-006I — Archimedean resolvent reduction
+
+For the finite dictionary, the archimedean density admits the exact expansion
+\[
+h_+(r)=h_+(0)+\sum_{n\ge0}\left(\frac1{a_n}-\frac{a_n}{a_n^2+r^2/4}\right),
+\qquad a_n=n+\tfrac14.
+\]
+Fourier transformation of the Lorentzian terms gives
+\[
+Q_{\mathrm{arch},\infty}(v;c)
+=
+\frac{h_+(0)}2K_v(1)
++
+\sum_{n\ge0}\left[
+\frac{K_v(1)}{2a_n}
+-
+L\int_0^1K_v(\omega)e^{-2La_n(1-\omega)}d\omega
+\right].
+\]
+**Status:** DERIVED EXACT REPRESENTATION.
+
+**Limitation:** this is not a positivity theorem. The explicit anchor \(h_+(0)K_v(1)/2\) is negative for every nonzero real-even vector because \(h_+(0)<0\) and \(K_v(1)=2\|T_v\|_2^2>0\). Any proof must account for compensation by the remaining resolvent terms and prime sampling.

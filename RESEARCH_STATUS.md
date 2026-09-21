@@ -48,3 +48,15 @@ A dedicated audit now separates operator convergence, arithmetic identification,
 ## Hard stop
 
 No finite certificate, zero matching, spectral convergence, or numerical stability result may be promoted to a proof of RH without an analytic theorem covering all required parameters and the final limit.
+
+## Current mathematical frontier
+
+The exact pole-neutral reduction is now sharpened one step further. The pole row removes the pole square, while \(M_0=0\) removes the singular rank-one prime-power curvature. The remaining even-sector problem is a regular prime sampling functional plus the cutoff-free archimedean functional.
+
+The archimedean term has now been rewritten exactly as a Volterra-kernel resolvent series. This exposes a negative scalar anchor
+\[
+\frac{h_+(0)}2K_v(1),
+\]
+with \(h_+(0)<0\) and \(K_v(1)=2\|T_v\|_2^2>0\) for nonzero real-even \(v\). Therefore positivity of \(h_+\) at large frequency cannot by itself establish quadratic-form positivity.
+
+The next load-bearing target is a joint prime–archimedean kernel identity or inequality that compensates this anchor on the exact constrained space.
