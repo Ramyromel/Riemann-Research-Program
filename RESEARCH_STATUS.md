@@ -40,7 +40,7 @@ A dedicated audit now separates operator convergence, arithmetic identification,
 2. Extract the exact finite matrix formula and its prime-power path derivative structure.
 3. Test candidate positive-kernel / Gram / Loewner representations symbolically.
 4. Derive the regular prime kernel after exact pole-neutral restriction.
-5. Combine the regular prime kernel with the archimedean kernel and search for a Gram/Loewner/Schur representation or a uniform lower bound.
+5. Use the exact restricted prime–archimedean kernel formula to seek a common positive-kernel, Gram/Schur, or uniform lower-bound representation.
 6. Extend the analysis to the odd sector.
 7. Audit the sine-Loewner/operator bridge against the exact finite Weil construction.
 8. Assemble the full Weil criterion only after the sign theorem and limiting argument are closed.
