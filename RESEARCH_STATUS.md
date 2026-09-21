@@ -26,7 +26,7 @@ This is strong finite evidence and a useful calibration point, but it is not a t
 
 ## Structural direction now prioritized
 
-A companion Groskin result identifies the prime-power derivative jumps of the finite matrix path exactly as negative rank-one von Mangoldt events, The first-derivative jump at each prime-power threshold is a negative-semidefinite rank-one event; equivalently, the singular part of the second derivative is a negative-semidefinite matrix-valued von Mangoldt measure. This gives Loewner concavity of the prime block, not positivity of the full matrix. The sign is now corrected and audited against the external structural result.
+A companion Groskin result identifies the prime-power derivative jumps of the finite matrix path exactly as negative rank-one von Mangoldt events. The first-derivative jump at each prime-power threshold is a negative-semidefinite rank-one event; equivalently, the singular part of the second derivative is a negative-semidefinite matrix-valued von Mangoldt measure. This gives Loewner concavity of the prime block, not positivity of the full matrix. The sign is now corrected and audited against the external structural result.
 
 The next target is therefore a structural factorization or monotonicity theorem for the complete cutoff-free matrix path, with the archimedean and pole pieces included.
 
