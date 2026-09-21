@@ -74,3 +74,10 @@ On the exact real-even pole-neutral family, the all-ones rank-one direction in t
 **Status:** DERIVED — VERIFIED AGAINST EXTERNAL PRIMARY FORMULAS.
 
 **Limitation:** this removes only the singular prime curvature and pole block on the restricted family. The regular prime contribution and archimedean contribution remain load-bearing.
+
+### T-006H — Exact restricted prime–archimedean kernel reduction
+After imposing the exact even-sector pole-neutral constraints, the pole term vanishes and the prime-power singular rank-one curvature vanishes through (M_0=0). The remaining restricted quadratic form is exactly the regular prime sampling functional plus the archimedean functional.
+
+**Status:** DERIVED EXACT REDUCTION.
+
+**Limitation:** the sign of the combined restricted form remains open. No positive-kernel representation or uniform lower bound has yet been proved.
