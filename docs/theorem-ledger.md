@@ -58,5 +58,12 @@ For a fixed admissible core, if finite generated admissible objects have nonnega
 
 **Limitation:** this closes only the logical limit step. It does not prove finite positivity, finite-family density, normalization, odd-sector coverage, or RH.
 
+### T-006F — Prime-path Loewner concavity
+At fixed Galerkin level, the cutoff-free finite prime block has negative-semidefinite rank-one derivative jumps at every prime-power threshold. Equivalently, its singular second derivative is a negative-semidefinite matrix-valued von Mangoldt measure. This is an external structural theorem under audit; the Loewner-concavity consequence is derived from it.
+
+**Status:** EXTERNAL THEOREM UNDER PROJECT AUDIT + DERIVED CONSEQUENCE.
+
+**Limitation:** concavity of the prime block does not imply positivity of the complete matrix. The remaining load-bearing problem is domination by the pole/archimedean block on the exact pole-neutral subspace, uniformly in (c,N).
+
 ## Status rule
 No numerical spectral match, finite positive-definiteness result, or external claim may be promoted to PROVED without an analytic theorem covering all parameters and the final limiting argument.

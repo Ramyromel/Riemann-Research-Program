@@ -1,6 +1,6 @@
 # Research Status
 
-Date: 2026-09-20
+Date: 2026-09-21
 
 ## Global status
 
@@ -26,7 +26,7 @@ This is strong finite evidence and a useful calibration point, but it is not a t
 
 ## Structural direction now prioritized
 
-A companion Groskin result identifies the prime-power derivative jumps of the finite matrix path exactly as negative rank-one von Mangoldt events, while the second-derivative jump is positive semidefinite. This arithmetic structure is now treated as a potential route to a global positivity decomposition, not as positivity itself.
+A companion Groskin result identifies the prime-power derivative jumps of the finite matrix path exactly as negative rank-one von Mangoldt events, The first-derivative jump at each prime-power threshold is a negative-semidefinite rank-one event; equivalently, the singular part of the second derivative is a negative-semidefinite matrix-valued von Mangoldt measure. This gives Loewner concavity of the prime block, not positivity of the full matrix. The sign is now corrected and audited against the external structural result.
 
 The next target is therefore a structural factorization or monotonicity theorem for the complete cutoff-free matrix path, with the archimedean and pole pieces included.
 
@@ -39,8 +39,8 @@ A dedicated audit now separates operator convergence, arithmetic identification,
 1. Reproduce and independently audit the external finite positivity certificate.
 2. Extract the exact finite matrix formula and its prime-power path derivative structure.
 3. Test candidate positive-kernel / Gram / Loewner representations symbolically.
-4. Determine whether the negative rank-one prime jumps can be compensated by an analytically positive archimedean/pole structure on the pole-neutral subspace.
-5. Search for a uniform-in-(c,N) inequality, not isolated eigenvalue positivity.
+4. Prove or refute domination of the cumulative negative prime block by the pole/archimedean block on the pole-neutral subspace.
+5. Search for a uniform-in-(c,N) domination inequality, not isolated eigenvalue positivity.
 6. Extend the analysis to the odd sector.
 7. Audit the sine-Loewner/operator bridge against the exact finite Weil construction.
 8. Assemble the full Weil criterion only after the sign theorem and limiting argument are closed.
