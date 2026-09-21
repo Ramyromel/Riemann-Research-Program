@@ -1,6 +1,6 @@
 # Prime-Path Hinge Decomposition — Finite Even Sector
 
-**Status:** DERIVED STRUCTURAL REDUCTION  
+**Status:** DERIVED PARTIAL STRUCTURAL REDUCTION  
 **Scope:** fixed Galerkin level \(N\), cutoff-free prime block as a function of \(u=\log c\)  
 **Does not prove:** finite positivity, global Weil positivity, or RH
 
@@ -19,128 +19,133 @@ the derivative jump
 J=\mathbf1\mathbf1^{\mathsf T}\succeq0.
 \]
 
-Here \(P_N(u)\) denotes the finite prime contribution to the cutoff-free matrix.
+The singular part of the second derivative is therefore
+\[
+(P_N'')_{\mathrm{sing}}
+=
+-2J\sum_q
+\frac{\Lambda(q)}{\sqrt q\,\log q}\,
+\delta_{\log q}.
+\]
 
-## 2. Distributional integration
+## 2. Correct distributional decomposition
 
-A piecewise-affine function whose derivative has jumps \(a_q\) admits the hinge representation
+The jump measure alone does **not** justify treating the entire prime path as piecewise affine. The exact external result identifies the singular arithmetic measure; it does not, by itself, eliminate a possible absolutely-continuous/smooth part of \(P_N''\).
+
+Accordingly, the rigorous decomposition is
 \[
 P_N(u)
 =
 A_N^{(0)}+uB_N^{(0)}
 +
-\sum_{q}
-a_q\,(u-\log q)_+,
-\]
-where
-\[
-(x)_+=\max(x,0),
-\]
-and the sum is locally finite in \(u\).
-
-Substituting the exact jump coefficients gives
-\[
-\boxed{
-P_N(u)
-=
-A_N^{(0)}+uB_N^{(0)}
+R_N(u)
 -
 2J
-\sum_{q=p^a}
-\frac{\Lambda(q)}{\sqrt q\,\log q}
-(u-\log q)_+ .
-}
-\]
-
-The matrices \(A_N^{(0)}\) and \(B_N^{(0)}\) are the two integration constants determined by the exact finite source formula and the chosen reference interval. They must not be guessed from numerical fits.
-
-## 3. Immediate consequence
-
-The entire nonlinear arithmetic dependence on the prime cutoff has now been isolated into the scalar function
-\[
-H(u)
-=
-2\sum_{q=p^a}
+\sum_q
 \frac{\Lambda(q)}{\sqrt q\,\log q}
 (u-\log q)_+,
 \]
-so that
-\[
-P_N(u)=A_N^{(0)}+uB_N^{(0)}-H(u)J.
-\]
+where \(R_N\) is the remaining twice-integrated absolutely-continuous/smooth contribution, if present under the chosen finite-matrix convention.
 
-Thus every prime-power event acts only in the single matrix direction \(J\).
+The exact source formula must determine \(R_N\), \(A_N^{(0)}\), and \(B_N^{(0)}\). They must not be inferred from numerical fitting.
 
-For any vector \(v\),
+This correction is deliberate: the project now distinguishes the **certified singular arithmetic component** from the unclassified regular component.
+
+## 3. What is nevertheless proved
+
+For every vector \(v\),
 \[
-v^{\mathsf T}P_N(u)v
+v^{\mathsf T}(P_N'')_{\mathrm{sing}}v
 =
-v^{\mathsf T}(A_N^{(0)}+uB_N^{(0)})v
--
-H(u)\,(\mathbf1^{\mathsf T}v)^2.
+-2(\mathbf1^{\mathsf T}v)^2
+\sum_q
+\frac{\Lambda(q)}{\sqrt q\,\log q}
+\delta_{\log q}
+\le0.
 \]
 
-This is stronger than merely saying that the prime block is Loewner-concave: its entire singular arithmetic curvature is rank one.
+Thus the arithmetic singular curvature is negative semidefinite and rank one at every prime-power event.
 
-## 4. Interaction with the pole-neutral subspace
-
-Let \(\mathcal V_{N,\mathrm{PN}}\) denote the exact finite pole-neutral subspace.
-
-The rank-one direction \(J\) must now be compared with the two pole/moment constraints. There are two logically distinct possibilities:
-
-1. \(J\) vanishes on the pole-neutral subspace. Then the prime-power curvature disappears after restriction, and the remaining finite positivity problem has a fundamentally different structure.
-2. \(J\) survives on that subspace. Then the full positivity problem contains the explicit negative scalar term
-   \[
-   -H(u)(\mathbf1^{\mathsf T}v)^2,
-   \]
-   and any proposed uniform positivity proof must supply an equally explicit compensating positive term.
-
-This distinction is testable directly from the exact constraint matrix and should be resolved before attempting an all-\((c,N)\) inequality.
-
-## 5. Load-bearing reduction
-
-With
+The cumulative singular contribution is exactly
 \[
-Q_N(u)=A_N+P_N(u),
+-H(u)J,
 \]
-the finite positivity target becomes
+with
 \[
-v^{\mathsf T}Q_N(u)v\ge0
+H(u)=
+2\sum_{q=p^a}
+\frac{\Lambda(q)}{\sqrt q\,\log q}
+(u-\log q)_+.
 \]
-for every admissible \(v\).
 
-Using the hinge form,
+This is a genuine structural extraction even without classifying \(R_N\).
+
+## 4. Pole-neutral interaction becomes the next decisive test
+
+Let \(\mathcal V_{N,\mathrm{PN}}\) be the exact finite pole-neutral subspace.
+
+The rank-one operator \(J\) acts through
 \[
-v^{\mathsf T}Q_N(u)v
-=
-v^{\mathsf T}\!\left(A_N+A_N^{(0)}+uB_N^{(0)}\right)v
--
-H(u)(\mathbf1^{\mathsf T}v)^2.
+v^{\mathsf T}Jv=(\mathbf1^{\mathsf T}v)^2.
 \]
 
-Therefore a sufficient analytic theorem is a scalar/vector inequality of the form
+Therefore the next exact question is whether
 \[
-v^{\mathsf T}\!\left(A_N+A_N^{(0)}+uB_N^{(0)}\right)v
-\ge
-H(u)(\mathbf1^{\mathsf T}v)^2
+\mathbf1^{\mathsf T}v=0
+\quad\text{for every }v\in\mathcal V_{N,\mathrm{PN}}.
 \]
-on the exact pole-neutral space.
 
-This separates the arithmetic difficulty from the finite harmonic-analysis difficulty.
+Two cases follow:
 
-## 6. Important limitation
+### Case A — \(J\) is annihilated
 
-The hinge representation does **not** determine the integration constants \(A_N^{(0)},B_N^{(0)}\). The derivative-jump theorem alone therefore cannot prove positivity.
+If the pole-neutral constraints imply
+\[
+\mathbf1^{\mathsf T}v=0,
+\]
+then the entire singular prime-power curvature vanishes after restriction. The finite positivity problem must then be controlled by the regular prime component, pole term, and archimedean term.
 
-The next exact task is to derive those constants from the primary finite source formula, then test whether the pole-neutral constraints annihilate or retain the \(J\)-direction.
+### Case B — \(J\) survives
 
-## 7. Classification
+If there exists admissible \(v\) with
+\[
+\mathbf1^{\mathsf T}v\ne0,
+\]
+then the restricted form contains the explicit negative arithmetic term
+\[
+-H(u)(\mathbf1^{\mathsf T}v)^2.
+\]
+
+Any uniform positivity theorem must exhibit an explicit compensating positive contribution.
+
+This is a finite-dimensional, directly testable dichotomy.
+
+## 5. Revised load-bearing target
+
+The previous target
+\[
+A_N\succeq-P_N(u)
+\]
+is equivalent to finite positivity but hides the arithmetic structure.
+
+The sharper target is now:
+
+1. compute the exact pole-neutral constraint matrix;
+2. compute its interaction with \(\mathbf1\);
+3. classify \(J\) as annihilated or surviving;
+4. derive the exact regular component \(R_N\);
+5. only then seek a Gram/Schur/Loewner representation or a uniform lower bound.
+
+This ordering prevents an invalid inference from the singular jump theorem to full-path positivity.
+
+## 6. Classification
 
 - Prime-power jump identity: **EXTERNAL THEOREM UNDER PROJECT AUDIT**.
-- Hinge integration of the jump measure: **DERIVED**.
-- Rank-one arithmetic curvature: **DERIVED**.
+- Negative-semidefinite rank-one singular measure: **DERIVED**.
+- Hinge representation of the singular component: **DERIVED**.
+- Full prime path as piecewise affine: **NOT ASSUMED**.
 - Pole-neutral interaction with \(J\): **OPEN — NEXT SUBTARGET**.
-- Finite positivity: **OPEN / LOAD-BEARING**.
+- Full finite positivity: **OPEN / LOAD-BEARING**.
 - Global Weil positivity: **OPEN**.
 - RH: **OPEN**.
 
