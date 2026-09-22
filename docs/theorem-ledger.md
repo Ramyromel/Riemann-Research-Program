@@ -106,6 +106,41 @@ L\int_0^1K_v(\omega)e^{-2La_n(1-\omega)}d\omega
 **Limitation:** this is not a positivity theorem. The explicit anchor \(h_+(0)K_v(1)/2\) is negative for every nonzero real-even vector because \(h_+(0)<0\) and \(K_v(1)=2\|T_v\|_2^2>0\). Any proof must account for compensation by the remaining resolvent terms and prime sampling.
 
 
+### T-006J — Exact finite sum-level/Hankel representation of the Prime–Weil block
+
+For the real-even cosine basis
+\[
+\phi_0(t)=1,\qquad \phi_k(t)=\sqrt2\cos(2\pi kt),
+\]
+define
+\[
+B_{ij}(\omega)=\int_0^\omega \phi_i(t)\phi_j(\omega-t)\,dt.
+\]
+Then the audited prime functional has the exact finite matrix representation
+\[
+Q_{\mathrm{prime}}(v;c)
+=
+v^{\mathsf T}
+\left[
+-2\sum_{q=p^a\le c}
+\frac{\Lambda(q)}{\sqrt q}B(\omega_q)
+\right]v.
+\]
+Equivalently, the distributional kernel is
+\[
+H_c(t,s)
+=
+-2\sum_{q=p^a\le c}
+\frac{\Lambda(q)}{\sqrt q}\,
+\delta(t+s-\omega_q),
+\]
+a weighted discrete Hankel/sum-level operator.
+
+**Status:** DERIVED EXACT FINITE REPRESENTATION; INDEPENDENT NUMERICAL AUDIT VERIFIED.
+
+**Limitation:** this is an exact representation of the prime block, not a positivity theorem. The joint prime–archimedean sign problem and infinite-dimensional operator identification remain open.
+
+
 ### T-HP-001 — Finite Hilbert–Pólya Prime–Weil pencil
 
 A 2026 external construction (Yaoming Shi, arXiv:2609.04908) defines finite real-symmetric Prime–Weil matrices from pole, archimedean, and prime-power data and formulates a Hermitian definite generalized eigenproblem on a fixed zero-mean contrast space. The project adopts this as an **external candidate architecture under independent reconstruction**, not as an imported theorem proving RH.
