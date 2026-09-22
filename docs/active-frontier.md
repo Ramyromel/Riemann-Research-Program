@@ -107,3 +107,32 @@ The exact first check is negative for the transform alone: (F) maps integers to 
 See `docs/prime-intersection-distance-route.md` and `research-log/2026-09-21-prime-intersection-distance-route.md`.
 
 **Status:** RESEARCH LEAD — NOT YET DERIVED; no RH claim.
+
+## Finding F9 — Exact sum-level/Hankel form of the finite Prime–Weil block
+
+The arithmetic prime contribution has now been derived directly in the audited real-even cosine basis as
+\[
+H^{\mathrm{prime}}_{N,c}
+=
+-2\sum_{q=p^a\le c}
+\frac{\Lambda(q)}{\sqrt q}B(\omega_q),
+\qquad
+B_{ij}(\omega)=
+\int_0^\omega\phi_i(t)\phi_j(\omega-t)\,dt.
+\]
+
+Its distributional kernel is
+\[
+H_c(t,s)
+=
+-2\sum_{q=p^a\le c}
+\frac{\Lambda(q)}{\sqrt q}\delta(t+s-\omega_q).
+\]
+
+This gives a precise operator interpretation of the earlier intersection idea: the arithmetic data act on **sum-level intersections** \(t+s=\omega_q\), producing a weighted discrete Hankel/convolution operator. The previously tested pairwise source-overlap Gram ansatz is therefore not the natural representation.
+
+An independent arbitrary-precision quadrature audit agrees with the matrix quadratic form to approximately \(6.8\times10^{-62}\) for \(c=30,N=3\) at 60 decimal digits.
+
+**Status:** F9 is DERIVED EXACT FINITE REPRESENTATION + VERIFIED NUMERICAL AUDIT. It does not establish positivity, an infinite-dimensional self-adjoint realization, or RH.
+
+See `experiments/sum_level_hankel/` and `research-log/2026-09-22-sum-level-hankel-operator.md`.

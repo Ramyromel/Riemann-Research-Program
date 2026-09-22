@@ -60,3 +60,21 @@ The archimedean term has now been rewritten exactly as a Volterra-kernel resolve
 with \(h_+(0)<0\) and \(K_v(1)=2\|T_v\|_2^2>0\) for nonzero real-even \(v\). Therefore positivity of \(h_+\) at large frequency cannot by itself establish quadratic-form positivity.
 
 The next load-bearing target is a joint prime–archimedean kernel identity or inequality that compensates this anchor on the exact constrained space.
+
+## New exact operator result — 2026-09-22
+
+The next subproblem from Issue #22 has been executed. The finite prime block now has an exact real-even Galerkin matrix representation as a weighted discrete Hankel/sum-level operator:
+\[
+H^{\mathrm{prime}}_{N,c}
+=
+-2\sum_{q=p^a\le c}
+\frac{\Lambda(q)}{\sqrt q}B(\omega_q),
+\qquad
+B_{ij}(\omega)=\int_0^\omega\phi_i(t)\phi_j(\omega-t)\,dt.
+\]
+Equivalently its distributional kernel is supported on \(t+s=\omega_q\).
+
+An independent 60-digit quadrature audit agrees with the matrix quadratic form to approximately \(6.8\times10^{-62}\) at \(c=30,N=3\). No zeta-zero data are used.
+
+**Classification:** exact finite representation = DERIVED; independent identity audit = VERIFIED; positivity = OPEN; joint prime–archimedean closure = OPEN; RH = OPEN.
+
