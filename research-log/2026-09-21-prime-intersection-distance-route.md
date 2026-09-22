@@ -28,3 +28,17 @@ Determine whether a weighted intersection kernel built from prime-power data has
 3. Exact Prime–Weil correspondence -> theorem candidate with explicit hypotheses.
 
 No proof claim is made at this stage.
+
+## First executable result
+
+The reference audit was implemented for c=100 using 35 prime-power sources. It confirms exactly that the 2x-1 transform has distance ratio 2 for every distinct source pair.
+
+The canonical kernel controls separate the geometry from the transform:
+
+- weighted logarithmic distance is not positive semidefinite (already its 2x2 principal block has negative determinant);
+- weighted min(log q, log r) is positive semidefinite by an exact overlap/Gram representation;
+- weighted exp(-|log q-log r|) is positive semidefinite by the standard exponential kernel structure.
+
+These PSD results are **generic kernel facts**, not evidence for RH and not yet evidence of a Prime–Weil correspondence. They establish that the route can generate mathematically nontrivial weighted intersection kernels, while also showing that positivity alone is too weak to identify the Riemann object.
+
+The experiment uses zero zeta ordinates: **0**.
