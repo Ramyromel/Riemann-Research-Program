@@ -10,9 +10,9 @@ y=2x-1
 \]
 does not create new pairwise geometry: \(|y_q-y_r|=2|q-r|\).
 
-The next step is therefore not to search for a more elaborate distance between transformed primes. The useful question is whether the user's "intersection points and distance" intuition is already present in the exact Prime–Weil kernel.
+The useful next question is whether the user's "intersection points and distance" intuition is already present in the exact Prime–Weil kernel.
 
-It is.
+It is, at the level of a one-source overlap/correlation functional. A pairwise source Gram interpretation remains open.
 
 ## 2. Exact object already present in the finite Weil dictionary
 
@@ -40,9 +40,9 @@ Q_{\mathrm{prime}}(v;c)
 
 This is exact under the repository's audited normalization.
 
-## 3. Intersection interpretation
+## 3. Exact intersection/correlation interpretation
 
-Define the reflected function
+Define
 \[
 (R_\omega T_v)(t)=T_v(\omega-t)
 \]
@@ -53,7 +53,7 @@ K_v(\omega)
 2\langle T_v,R_\omega T_v\rangle_{L^2(0,\omega)}.
 \]
 
-Thus \(K_v(\omega)\) is an overlap/correlation functional between a function and its reflected copy on the interval where the two arguments coexist.
+Thus \(K_v(\omega)\) is exactly an overlap/correlation between a function and its reflected copy over the common interval where both factors are evaluated.
 
 This is materially different from the generic kernels tested in the first prime-intersection experiment:
 
@@ -62,7 +62,7 @@ This is materially different from the generic kernels tested in the first prime-
 - it depends on the same Galerkin vector \(v\) that defines the Weil test function;
 - it enters the exact finite explicit-formula quadratic form.
 
-The "intersection" is therefore not an added metaphor: it is an analytic overlap already encoded by the finite Weil dictionary.
+The "intersection" is therefore an analytic overlap already encoded by the finite Weil dictionary, rather than an arbitrary auxiliary kernel.
 
 ## 4. Distance variable
 
@@ -78,40 +78,33 @@ Hence two prime-power sources have the exact cutoff-normalized separation
 \frac{|\log q-\log r|}{\log c}.
 \]
 
-The affine map \(2q-1\) does not enter this identity. It is classified as an auxiliary coordinate experiment, not the source of the Weil geometry.
+The affine map \(2q-1\) does not enter this identity. It remains an auxiliary coordinate experiment, not the source of the Weil geometry.
 
-## 5. Stronger pairwise formulation
+## 5. Pairwise source geometry: exact boundary
 
-For two source locations \(\omega_q,\omega_r\), define the truncated overlap
-\[
-I_v(\omega_q,\omega_r)
-=
-\int_0^{\min(\omega_q,\omega_r)}
-T_v(t)\,
-T_v\!\left(\omega_q+\omega_r-\omega_r-t\right)\,dt.
-\]
-
-The direct two-source cross-correlation is better written with a common shift parameter:
+A natural pairwise correlation for translated copies is
 \[
 C_v(a,b)
 =
-\int_{\mathbb R}T_v(t-a)T_v(t-b)\,dt
+\int_{\mathbb R}T_v(t-a)T_v(t-b)\,dt,
 \]
-whenever the chosen extension/domain makes this integral well-defined.
+whenever the chosen extension/domain makes the integral well-defined.
 
-For compactly supported \(T_v\), \(C_v(a,b)\) vanishes when the supports do not intersect and otherwise measures their overlap with displacement \(|a-b|\).
+For compactly supported \(T_v\), this is an overlap integral whose value depends on the relative displacement \(|a-b|\).
 
-**Important:** this pairwise correlation is not asserted to equal the Weil \(K_v(\omega)\). Establishing such an equality would require an explicit identification of the support/extension convention. The repository therefore records this as a structural bridge, not a theorem of equality.
+However, **no equality is asserted between \(C_v(a,b)\) and \(K_v(\omega)\)**. The two objects have different constructions: \(K_v\) is a self-correlation with a cutoff-dependent reflection on \([0,\omega]\), whereas \(C_v\) is a translated whole-domain correlation. An exact identification would require an explicit support/extension theorem.
 
-## 6. What is actually proved by the bridge
+This distinction is now recorded as a hard proof boundary.
 
-The following implications are exact:
+## 6. What is established
+
+The following statements are exact:
 
 1. \(2x-1\) is affine, so raw transformed distance contains no new prime geometry.
-2. The finite Prime–Weil construction already contains a genuine overlap/correlation kernel \(K_v\).
+2. The finite Prime–Weil construction contains the overlap/correlation functional \(K_v\).
 3. Prime-power arithmetic enters through the exact weights \(\Lambda(q)/\sqrt q\).
 4. Multiplicative arithmetic enters the source coordinate through \(\log q\).
-5. The cutoff maps all source locations into the fixed interval \(0\le\omega_q<1\).
+5. The cutoff maps the source locations into \(0\le\omega_q<1\).
 6. Therefore the promising version of the user's intersection idea is the **weighted, logarithmic, cutoff-normalized overlap geometry**, not the \(2x-1\) transform itself.
 
 None of these statements implies Weil positivity or RH.
@@ -122,7 +115,7 @@ The next mathematical target is now precise:
 
 > Can the restricted Prime–Weil quadratic form be rewritten as a positive Gram/overlap object whose source vectors are generated directly from the prime-power locations \(\omega_q\) and weights \(\Lambda(q)/\sqrt q\), with the archimedean term providing the required completion?
 
-A successful derivation would need an exact identity of quadratic forms, not numerical fitting.
+A successful derivation requires an exact identity of quadratic forms, not numerical fitting.
 
 A failed derivation should be retained as a no-go result.
 
@@ -137,7 +130,7 @@ Q_{\mathrm{PN}}(v;c)
 Q_{\mathrm{arch},\infty}(v;c).
 \]
 
-Therefore the new route does not replace the existing positivity problem. It gives a more precise geometric representation of the arithmetic term and identifies what a Gram/Schur closure would have to capture.
+Therefore the new route does not replace the existing positivity problem. It gives a precise geometric interpretation of the arithmetic term and identifies what a Gram/Schur closure would have to capture.
 
 ## 9. Non-circularity
 
