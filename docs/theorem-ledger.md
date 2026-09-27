@@ -154,3 +154,12 @@ with standard-form operator \(H_{N,c}=G_N^{-1/2}S_{N,c}G_N^{-1/2}\).
 **Status:** EXTERNAL RESEARCH INPUT + DERIVED PROJECT DESIGN.
 
 **Limitations:** exact reconstruction from this repository's normalization, arithmetic trace identity, infinite-dimensional operator convergence, spectral identification with zeta zeros, and exclusion of spurious spectrum remain OPEN. Zero-side interpolation using known ordinates is classified as reconstruction only.
+
+### T-006K — Shared-basis Archimedean Hankel matrix
+
+On the real-even cosine basis, the exact cutoff-free archimedean resolvent identity induces the finite matrix
+\[
+A^{\\mathrm{arch}}_{ij}=h_+(0)\\delta_{ij}+\\sum_{n\\ge0}\left[\\frac{\\delta_{ij}}{a_n}-2L\\int_0^1B_{ij}(\\omega)e^{-2La_n(1-\\omega)}d\\omega\right],
+\\qquad a_n=n+\\tfrac14.
+\]
+The inner Laplace integrals have an exact finite Fourier evaluation. Numerical implementation truncates only the outer series. **DERIVED EXACT FINITE FORM; NUMERICAL SERIES EVALUATION.** This does not establish positivity or RH.

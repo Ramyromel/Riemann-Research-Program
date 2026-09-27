@@ -136,3 +136,5 @@ An independent arbitrary-precision quadrature audit agrees with the matrix quadr
 **Status:** F9 is DERIVED EXACT FINITE REPRESENTATION + VERIFIED NUMERICAL AUDIT. It does not establish positivity, an infinite-dimensional self-adjoint realization, or RH.
 
 See `experiments/sum_level_hankel/` and `research-log/2026-09-22-sum-level-hankel-operator.md`.
+
+- **F10 — Shared-basis Archimedean matrix:** exact finite Fourier/Laplace reduction is implemented. The remaining numerical approximation is only the outer resolvent-series truncation. The pole-neutral parameter is audited as \(\\beta=\\log(c)/(4\\pi)\). Restricted spectra are currently consistent with nonnegativity but are not a theorem.
