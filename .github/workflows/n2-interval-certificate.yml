@@ -1,0 +1,22 @@
+name: N2 interval certificate
+
+on:
+  pull_request:
+    paths:
+      - "experiments/archimedean_hankel/**"
+      - "experiments/sum_level_hankel/**"
+      - ".github/workflows/n2-interval-certificate.yml"
+
+jobs:
+  interval-certificate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip mpmath
+      - name: Run interval certificate
+        working-directory: experiments/archimedean_hankel
+        run: |
+          PYTHONPATH=../sum_level_hankel:. python n2_interval_certificate.py
