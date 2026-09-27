@@ -30,6 +30,37 @@ class ArchimedeanHankelTests(unittest.TestCase):
             )
             self.assertLess(abs(exact - direct), mp.mpf("1e-25"))
 
+    def test_pole_neutral_basis_has_expected_dimension_and_constraints(self):
+        mp.mp.dps = 50
+        c, N = 20, 4
+        Z = __import__("archimedean_hankel").pole_neutral_nullspace(c, N)
+        self.assertEqual(Z.rows, N + 1)
+        self.assertEqual(Z.cols, N - 1)
+
+        beta = mp.log(c) / (4 * mp.pi)
+        C = mp.matrix(2, N + 1)
+        C[0, 0] = 1 / beta**2
+        C[1, 0] = 1
+        for k in range(1, N + 1):
+            C[0, k] = mp.sqrt(2) / (k * k + beta**2)
+            C[1, k] = mp.sqrt(2)
+
+        residual = C * Z
+        self.assertLess(
+            max(abs(residual[i, j])
+                for i in range(residual.rows)
+                for j in range(residual.cols)),
+            mp.mpf("1e-40"),
+        )
+
+        gram = Z.T * Z
+        self.assertLess(
+            max(abs(gram[i, j] - (1 if i == j else 0))
+                for i in range(gram.rows)
+                for j in range(gram.cols)),
+            mp.mpf("1e-40"),
+        )
+
     def test_restricted_total_is_stable_under_resolvent_truncation(self):
         # The prime block is supplied independently by the existing
         # sum-level/Hankel experiment.  Here we only verify that the
