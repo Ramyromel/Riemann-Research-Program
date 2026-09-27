@@ -58,7 +58,7 @@ Using the correct (eta(c)), the restricted combined prime-plus-archimedean matr
 ]
 at 1000, 3000, and 10000 resolvent terms respectively.
 
-For (N=3,4,5), the additional small eigenvalues are of order (10^{-8}) or below at 10000 terms. These are treated as unresolved near-null modes, not as certified zero eigenvalues.
+The previously recorded small eigenvalues for N=3,4,5 were produced through the broken restricted-basis implementation and must not be used as evidence. They are removed from the evidentiary chain pending recomputation.
 
 ## Interpretation boundary
 
@@ -71,4 +71,4 @@ The numerical pattern is compatible with a positive-semidefinite restricted form
 
 ## Next attack
 
-The next attack will target the near-null modes and the exact restricted kernel. The main questions are whether the constraints force an algebraic nullspace, whether the combined kernel admits a positive factorization, and whether the outer series can be resummed into a manifestly positive Stieltjes kernel.
+After the basis correction is merged, the next attack will recompute the restricted spectrum and only then target any surviving near-null modes and the exact restricted kernel. The main questions are whether the constraints force an algebraic nullspace, whether the combined kernel admits a positive factorization, and whether the outer series can be resummed into a manifestly positive Stieltjes kernel.
