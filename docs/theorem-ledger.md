@@ -163,3 +163,7 @@ A^{\\mathrm{arch}}_{ij}=h_+(0)\\delta_{ij}+\\sum_{n\\ge0}\left[\\frac{\\delta_{i
 \\qquad a_n=n+\\tfrac14.
 \]
 The inner Laplace integrals have an exact finite Fourier evaluation. Numerical implementation truncates only the outer series. **DERIVED EXACT FINITE FORM; NUMERICAL SERIES EVALUATION.** This does not establish positivity or RH.
+
+### T-006L — Certified Archimedean resolvent tail bound
+
+Integration by parts gives an exact endpoint-cancelled expression for each resolvent summand and an explicit (O(N_T^{-1})) tail bound. A finite Fourier coefficient (L^1) bound yields a rigorous Frobenius-norm envelope for the omitted finite-basis matrix tail. This certifies numerical truncation error but does not establish positivity. **DERIVED.**
