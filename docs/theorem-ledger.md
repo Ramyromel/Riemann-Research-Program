@@ -193,3 +193,14 @@ where (M_2(v)) bounds (sup_{omegain[0,1]}|K_v''(omega)|). A finite-Fourier coeff
 **Consequence:** the restricted truncation envelope improves from (O(N_T^{-1})) to (O(N_T^{-2})). At (c=20,N=2,N_T=1000), the conservative second-order envelope is approximately (2.99	imes10^{-6}), versus approximately (2.99	imes10^{-3}) from the unrestricted first-order bound.
 
 **Limitation:** this does not by itself certify the sign of the finite restricted matrix; the computed finite spectral value still requires a separate numerical/interval certification if it is to be called a rigorous eigenvalue bound.
+
+
+### T-006N — N=2 pole-neutral scalar reduction and truncation-corrected positive margin
+
+For (N=2), the two exact pole-neutral constraints leave a one-dimensional admissible subspace. The restricted combined Prime–Weil form therefore reduces exactly to a scalar Rayleigh quotient.
+
+At (c=20), high-precision evaluation gives a positive truncated value at (N_T=1000) and (N_T=10000). Combining this with the derived second-order Archimedean tail bound leaves a positive **numerical** residual margin.
+
+**Status:** NUMERICALLY SUPPORTED — TRUNCATION-CORRECTED.
+
+**Not yet proved:** the finite arithmetic enclosure is not interval-certified, and the result covers only one cutoff and one Galerkin dimension. It does not imply finite positivity for general (N,c), global Weil positivity, or RH.
