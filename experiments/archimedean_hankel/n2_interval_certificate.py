@@ -6,9 +6,7 @@ The archimedean constant uses the exact identity
     h_+(0) = -gamma - pi/2 - log(8*pi).
 
 Euler's constant is bounded with the alternating Euler--Maclaurin expansion
-for H_n - log(n), avoiding the wide 1/(2N) tail of the elementary series.
-
-The omitted Archimedean resolvent tail is bounded by
+for H_n - log(n).  The omitted Archimedean resolvent tail is bounded by
 
     |R| <= M2/(8 L^2) * sum_{n>=N_T} (n+1/4)^(-3),
 
@@ -25,7 +23,6 @@ from __future__ import annotations
 import math
 import mpmath as mp
 
-from archimedean_hankel import fourier_l1_second_derivative_bound
 from sum_level_hankel import prime_powers
 
 
@@ -49,9 +46,7 @@ def gamma_interval(n: int = 1000):
     ]
     s = base + terms[0] + terms[1] + terms[2]
     next_term = terms[3]
-    lo = s + next_term
-    hi = s
-    return mp.iv.mpf([lo.a, hi.b])
+    return mp.iv.mpf([(s + next_term).a, s.b])
 
 
 def h0_interval():
@@ -165,13 +160,26 @@ def prime_matrix_iv(c: int):
     return H
 
 
+def _second_derivative_bound_iv(i: int, j: int):
+    """Interval upper envelope for sup_w |K_ij''(w)|."""
+    total = mp.iv.mpf(0)
+    for kind, alpha, coeff in _terms(i, j):
+        cabs = abs(coeff)
+        k = 2 * mp.iv.pi * abs(alpha)
+        if kind == "w":
+            total += cabs * (2 * k + k * k)
+        else:
+            total += cabs * k * k
+    return 2 * total
+
+
 def second_order_tail_bound_iv(c: int, n_terms: int):
     L = mp.iv.log(c)
     sq = mp.iv.mpf(0)
     for i in range(3):
         for j in range(3):
-            b = fourier_l1_second_derivative_bound(i, j)
-            sq += mp.iv.mpf(str(b)) ** 2
+            b = _second_derivative_bound_iv(i, j)
+            sq += b * b
     fro = mp.iv.sqrt(sq)
     x = mp.iv.mpf(n_terms) + mp.iv.mpf("0.25")
     cubic_tail = 1 / x**3 + 1 / (2 * x**2)
