@@ -118,3 +118,41 @@ This does **not** prove positivity. It upgrades numerical spectrum checks to int
 - Positivity: **OPEN**
 - Global Weil positivity: **OPEN**
 - RH: **OPEN**
+
+## Pole-neutral second-order improvement
+
+The first-order bound above is valid without imposing (M_0(v)=0). On the exact pole-neutral family,
+[
+M_0(v)=T_v(0)=T_v(1)=0.
+]
+For
+[
+K_v(omega)=2int_0^omega T_v(t)T_v(omega-t),dt,
+]
+this implies
+[
+K_v'(0)=K_v'(1)=0.
+]
+Therefore the first-order remainder can be integrated by parts once more. With (a_n=n+	frac14),
+[
+left|
+rac{K_v(1)}{2a_n}
+-
+Lint_0^1K_v(omega)e^{-2La_n(1-omega)}domega
+ight|
+le
+rac{M_2(v)}{8L^2a_n^3},
+]
+where (M_2(v)gesup_{omegain[0,1]}|K_v''(omega)|). Consequently,
+[
+|R_{N_T}(v)|
+le
+rac{M_2(v)}{8L^2}
+left[-rac12psi^{(2)}(N_T+	frac14)ight]
+=
+O(N_T^{-2}).
+]
+
+The repository now implements a conservative finite-Fourier coefficient envelope for (M_2) in experiments/archimedean_hankel/archimedean_tail_certificate.py.
+
+This improvement applies only after restriction to the pole-neutral family. It is not a positivity theorem and does not remove the need to certify the finite spectral calculation separately.
