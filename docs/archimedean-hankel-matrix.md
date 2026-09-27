@@ -124,7 +124,7 @@ has, for example, a single restricted eigenvalue for (N=2) that is approximately
 
 For larger (N), several restricted eigenvalues are numerically close to zero. These observations are **not** a positivity theorem: the archimedean series is truncated, and the finite prime block itself is only one component of the full proof architecture.
 
-The near-zero modes are potentially structurally meaningful because the two exact pole-neutral constraints reduce the dimension by two. They should be investigated as possible null/near-null directions before any Gram factorization is attempted.
+The intended near-zero modes were observed only with the previously broken restricted-basis implementation. Those numerical observations are invalidated pending recomputation with the corrected nullspace basis. The two exact pole-neutral constraints still reduce the dimension by two. They should be investigated as possible null/near-null directions before any Gram factorization is attempted.
 
 ## 5. Next load-bearing target
 
