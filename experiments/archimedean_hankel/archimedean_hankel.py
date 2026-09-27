@@ -132,10 +132,47 @@ def pole_neutral_nullspace(c: int, N: int) -> mp.matrix:
         C[0, k] = mp.sqrt(2) / (k * k + beta**2)
         C[1, k] = mp.sqrt(2)
 
-    # Small dimensions used by the experiment; QR/SVD is deliberately kept
-    # in the analysis layer rather than treated as a proof of positivity.
-    _, _, V = mp.svd_r(C)
-    return V[2:, :].T
+    # Do not use mpmath.svd_r here. Its returned V object is the
+    # reduced right-singular factor, so V[2:, :] is empty for this 2-row
+    # constraint matrix. That silently produced a zero-dimensional
+    # restricted space and could invalidate every downstream spectral test.
+    #
+    # Instead eliminate v_0,v_1 exactly in terms of the free coordinates
+    # v_2,...,v_N, then Euclidean-orthonormalize those null vectors.
+    # This gives a deterministic basis of dimension N-1 for N >= 2.
+    if N < 2:
+        return mp.matrix(N + 1, 0)
+
+    a0 = C[0, 0]
+    a1 = C[0, 1]
+    M = mp.matrix([[a0, a1], [C[1, 0], C[1, 1]]])
+    M_inv = M ** -1
+
+    raw = []
+    for free in range(2, N + 1):
+        v = mp.matrix(N + 1, 1)
+        v[free] = 1
+        rhs = mp.matrix([-C[0, free], -C[1, free]])
+        solved = M_inv * rhs
+        v[0] = solved[0]
+        v[1] = solved[1]
+        raw.append(v)
+
+    basis = []
+    for v in raw:
+        for q in basis:
+            v -= q * (q.T * v)[0]
+        norm = mp.sqrt((v.T * v)[0])
+        if norm == 0:
+            raise ArithmeticError("degenerate nullspace basis vector")
+        basis.append(v / norm)
+
+    Z = mp.matrix(N + 1, len(basis))
+    for col, v in enumerate(basis):
+        for row in range(N + 1):
+            Z[row, col] = v[row]
+
+    return Z
 
 
 def restricted_matrix(A: mp.matrix, c: int) -> mp.matrix:
