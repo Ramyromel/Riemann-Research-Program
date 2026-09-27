@@ -167,3 +167,29 @@ The inner Laplace integrals have an exact finite Fourier evaluation. Numerical i
 ### T-006L — Certified Archimedean resolvent tail bound
 
 Integration by parts gives an exact endpoint-cancelled expression for each resolvent summand and an explicit (O(N_T^{-1})) tail bound. A finite Fourier coefficient (L^1) bound yields a rigorous Frobenius-norm envelope for the omitted finite-basis matrix tail. This certifies numerical truncation error but does not establish positivity. **DERIVED.**
+
+
+### T-006M — Pole-neutral second-order Archimedean tail bound
+
+For a real-even finite vector on the exact pole-neutral family,
+[
+M_0(v)=v_0+sqrt2sum_{k=1}^N v_k=0,
+]
+the associated trigonometric polynomial satisfies (T_v(0)=T_v(1)=0). Hence
+[
+K_v'(0)=K_v'(1)=0.
+]
+Applying integration by parts twice to the omitted Archimedean resolvent series gives
+[
+|R_{N_T}(v)|
+le
+rac{M_2(v)}{8L^2}
+sum_{n=N_T}^{infty}(n+	frac14)^{-3},
+]
+where (M_2(v)) bounds (sup_{omegain[0,1]}|K_v''(omega)|). A finite-Fourier coefficient envelope provides an explicit conservative Frobenius bound for (M_2).
+
+**Status:** DERIVED — POLE-NEUTRAL RESTRICTION ONLY.
+
+**Consequence:** the restricted truncation envelope improves from (O(N_T^{-1})) to (O(N_T^{-2})). At (c=20,N=2,N_T=1000), the conservative second-order envelope is approximately (2.99	imes10^{-6}), versus approximately (2.99	imes10^{-3}) from the unrestricted first-order bound.
+
+**Limitation:** this does not by itself certify the sign of the finite restricted matrix; the computed finite spectral value still requires a separate numerical/interval certification if it is to be called a rigorous eigenvalue bound.
