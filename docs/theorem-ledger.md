@@ -201,6 +201,8 @@ For (N=2), the two exact pole-neutral constraints leave a one-dimensional admiss
 
 At (c=20), high-precision evaluation gives a positive truncated value at (N_T=1000) and (N_T=10000). Combining this with the derived second-order Archimedean tail bound leaves a positive **numerical** residual margin.
 
-**Status:** NUMERICALLY SUPPORTED — TRUNCATION-CORRECTED.
+**Status:** INTERVAL-CERTIFIED — LOCAL FINITE PARAMETER CASE.
 
-**Not yet proved:** the finite arithmetic enclosure is not interval-certified, and the result covers only one cutoff and one Galerkin dimension. It does not imply finite positivity for general (N,c), global Weil positivity, or RH.
+A dedicated `mpmath.iv` enclosure plus the derived second-order Archimedean tail bound certifies the corrected lower endpoint for the specific case (c=20,N=2,T=1000). CI execution is green.
+
+**Not proved:** this covers only one cutoff and one Galerkin dimension. It does not imply finite positivity for general (N,c), global Weil positivity, the infinite-dimensional limit, or RH.
