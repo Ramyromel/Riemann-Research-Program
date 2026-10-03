@@ -15,8 +15,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python -m pip install --upgrade pip mpmath
+      - run: python -m pip install --upgrade pip mpmath pytest
       - name: Run interval certificate
         working-directory: experiments/archimedean_hankel
         run: |
           PYTHONPATH=../sum_level_hankel:. python n2_interval_certificate.py
+          PYTHONPATH=../sum_level_hankel:. pytest -q test_n2_interval_certificate.py
