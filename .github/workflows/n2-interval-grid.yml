@@ -1,0 +1,24 @@
+name: N2 interval grid
+
+on:
+  pull_request:
+    paths:
+      - "experiments/archimedean_hankel/interval_grid_certificate.py"
+      - "experiments/archimedean_hankel/n2_interval_certificate.py"
+      - "experiments/archimedean_hankel/test_interval_grid_certificate.py"
+      - ".github/workflows/n2-interval-grid.yml"
+
+jobs:
+  interval-grid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip mpmath pytest
+      - name: Run interval grid
+        working-directory: experiments/archimedean_hankel
+        run: |
+          PYTHONPATH=.:../sum_level_hankel python interval_grid_certificate.py
+          PYTHONPATH=.:../sum_level_hankel pytest -q test_interval_grid_certificate.py
