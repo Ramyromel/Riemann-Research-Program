@@ -138,3 +138,12 @@ An independent arbitrary-precision quadrature audit agrees with the matrix quadr
 See `experiments/sum_level_hankel/` and `research-log/2026-09-22-sum-level-hankel-operator.md`.
 
 - **F10 — Shared-basis Archimedean matrix:** exact finite Fourier/Laplace reduction is implemented. The remaining numerical approximation is only the outer resolvent-series truncation. The pole-neutral parameter is audited as \(\\beta=\\log(c)/(4\\pi)\). Restricted spectra are currently consistent with nonnegativity but are not a theorem.
+
+
+## F11 — First interval-certified pole-neutral scalar case
+
+The N=2 pole-neutral sector at c=20 reduces exactly to one scalar Rayleigh quotient. A dedicated interval-arithmetic implementation now encloses the finite Prime + Archimedean expression and combines it with the derived second-order Archimedean tail envelope. GitHub Actions independently executes the certificate and its pytest checks successfully.
+
+**Status:** F11 is INTERVAL-CERTIFIED for the single finite parameter case (c=20,N=2,T=1000). This is a local certification only; uniform finite positivity and the global Weil limit remain open.
+
+See `docs/n2-interval-certificate.md` and `experiments/archimedean_hankel/n2_interval_certificate.py`.
