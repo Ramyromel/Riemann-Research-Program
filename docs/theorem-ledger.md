@@ -222,3 +222,64 @@ The corrected lower endpoints are approximately:
 **Status:** INTERVAL-CERTIFIED — EXPLICIT LOCAL FINITE GRID.
 
 **Limitations:** this certifies only the listed five cutoffs at N=2 and T=1000. It does not prove finite positivity for arbitrary c or N, does not address N>2 certified nullspace reduction, does not close the infinite-dimensional limit, and does not prove RH. A failed certificate outside this grid would be INCONCLUSIVE rather than a counterexample unless the enclosure itself is mathematically shown to exclude zero.
+
+
+### T-006P — N=3 restricted matrix frontier
+
+For N=3, the exact two-dimensional pole-neutral space has been constructed and the combined Prime + truncated Archimedean matrix has been evaluated at c = 10, 20, 50 and T = 1000, 4000. The smallest restricted eigenvalue approaches zero as the Archimedean cutoff is increased.
+
+**Status:** DISCOVERY / OPEN / LOAD-BEARING.
+
+The finite values are not interval-certified eigenvalue bounds and do not constitute a counterexample. The next obligation is a matrix-level enclosure or a structural explanation of the near-null direction.
+
+### T-006Q — Support-compression theorem target
+
+Let (A_a) denote the localized Weil operator in the repository normalization on the real pole-neutral test core with physical logarithmic support radius (a=L/2). The target theorem is
+[
+E_{a,b}^{*}A_bE_{a,b}=A_a,qquad 0<a<b.
+]
+
+If this identity is proved, then positivity on any cofinal sequence (a_j\to\infty) implies positivity for every finite support radius by direct compression.
+
+**Status:** TARGET / UNVERIFIED.
+
+The proof obligation is to derive, without importing an external theorem:
+1. exact archimedean/potential cancellation under zero extension;
+2. polar-term compatibility in physical coordinates;
+3. exact prime-power activation and zero old-old overlap for newly activated translations;
+4. assembly into the full compression identity.
+
+This target is intended to replace, not merely supplement, the current finite-dimensional spectral-limit bottleneck.
+
+
+### T-006R — Odd sine-basis arithmetic block
+
+Define (psi_k(w)=sqrt2sin(2pi kw)), (kge1), under (y=L(w-1/2)). Then (psi_k(1-w)=-psi_k(w)), so the basis is genuinely odd in physical logarithmic coordinates. The finite prime-power block is derived directly from
+[
+B_{ij}^{m odd}(omega)=int_0^omegapsi_i(t)psi_j(t),dt,
+]
+with the same audited arithmetic weights (-2Lambda(q)/sqrt q).
+
+Moreover (int_0^1psi_k=0) exactly, so the zero-mean moment (M_0) vanishes identically throughout the odd sine sector.
+
+**Status:** DERIVED + CI-VERIFIED ARITHMETIC BLOCK.
+
+**Limitation:** the odd archimedean/resolvent block, full pole functional, polar term, and physical-to-finite normalization bridge remain OPEN. The arithmetic block by itself is indefinite (for example (c=20,N=6) has (lambda_{min}approx-2.5298184518)); this is not a counterexample to RH.
+
+
+### T-006S — Corrected physical odd prime translation
+
+The first odd-sine arithmetic prototype was rejected by normalization audit: its truncated same-point Gram integral did not represent the physical translation operator. The arithmetic block has now been re-derived from
+[
+S_r f(x)=\mathbf 1_{(-1,1)}(x+r)f(x+r),qquad r=\log(q)/a,quad a=\tfrac12\log c,
+]
+in the orthonormal physical odd basis (phi_k(x)=\sin(k\pi x)). The exact finite entries use product-to-sum integration, and the contribution is
+[
+-\sum_{q=p^m<c}\frac{\Lambda(q)}{\sqrt q}(S_{r_q}+S_{r_q}^*).
+]
+
+At (c=20,N=6), the arithmetic-only minimum eigenvalue is approximately (-0.5538245571).
+
+**Status:** DERIVED / NORMALIZATION-AUDITED / CI-VERIFICATION PENDING ON LATEST COMMIT.
+
+**Consequence:** the previous odd prototype is explicitly retired and must not be used in any proof chain. The complete physical odd operator, including (H_{\rm Leg}), (V), (K_{\gamma,a}), the polar rank-one term, and the exact normalization bridge, remains OPEN.
