@@ -90,22 +90,19 @@ def arch_matrix(c,N,n_terms=1000):
                 A[i-1,j-1]+=K1/(2*a)-L*2*integrated_K(i,j,decay)
     return (A+A.T)/2
 
-def combined(c=20,N=6,n_terms=1000,dps=50):
+def audit(c=20,N=6,n_terms=1000,dps=50):
     mp.mp.dps=dps
-    P=prime_matrix(c,N)
     A=arch_matrix(c,N,n_terms)
-    C=(P+A+ (P+A).T)/2
-    vals=mp.eigsy(C,eigvals_only=True)
-    return P,A,vals
+    k1_err=max(abs(K_entry(i,j,mp.mpf("1"))-(-2 if i==j else 0))
+               for i in range(1,N+1) for j in range(1,N+1))
+    return A,k1_err
+
 
 if __name__=="__main__":
-    P,A,vals=combined()
+    A,k1_err=audit()
     print("c=20 N=6 T=1000")
-    print("prime_min =",mp.nstr(min(mp.eigsy(P,eigvals_only=True)),18))
     print("arch_min =",mp.nstr(min(mp.eigsy(A,eigvals_only=True)),18))
-    print("combined_min =",mp.nstr(min(vals),18))
-    k1_err = max(abs(K_entry(i, j, mp.mpf("1")) - (-2 if i == j else 0)) for i in range(1, N + 1) for j in range(1, N + 1))
-    print("K1_max_error =", mp.nstr(k1_err, 18))
+    print("K1_max_error =",mp.nstr(k1_err,18))
     if k1_err > mp.mpf("1e-40"):
         raise AssertionError("odd convolution endpoint K(1) != -2 I")
-    print("classification = CANDIDATE ODD ARCHIMEDEAN + PRIME RESTRICTION")
+    print("classification = CANDIDATE ODD ARCHIMEDEAN BLOCK ONLY")
