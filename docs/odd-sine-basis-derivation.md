@@ -1,93 +1,112 @@
-# Odd sine-basis arithmetic derivation
+# Odd sine-basis physical normalization audit
 
-**Status: DERIVED / CI-VERIFIED ARITHMETIC BLOCK; NORMALIZATION BRIDGE OPEN**
+**Status: PHYSICAL ARITHMETIC BLOCK DERIVED; FULL NORMALIZATION OPEN**
 
-## 1. Basis and parity
+## 1. Physical odd basis
 
-For the localized coordinate (w\in[0,1]), define
-\[
-\psi_k(w)=\sqrt2\sin(2\pi k w),\qquad k\ge1.
-\]
+Use the physical logarithmic coordinate (x=y/ain(-1,1)), where
+[
+a=rac12log c.
+]
+The orthonormal real odd basis is
+[
+phi_k(x)=sin(kpi x),qquad kge1.
+]
 
-With
-\[
-y=L(w-1/2),\qquad a=L/2,
-\]
-physical reflection (y\mapsto-y) is (w\mapsto1-w). Therefore
-\[
-\psi_k(1-w)=-\psi_k(w),
-\]
-so the basis is genuinely odd in the physical coordinate.
+Under (x=2w-1),
+[
+phi_k(2w-1)=(-1)^ksin(2pi kw),
+]
+so this is the same parity sector as the sine basis in (w), with the unitary normalization made explicit.
 
-This is not a change of basis inside the old cosine sector: it is a new parity sector derived directly from the localized coordinate.
+## 2. Correct prime-power translation block
 
-## 2. Exact arithmetic translation block
+For (q=p^m<c=e^{2a}), the physical localized translation is
+[
+(S_{r_q}f)(x)=mathbf 1_{(-1,1)}(x+r_q)f(x+r_q),
+qquad
+r_q=rac{log q}{a}.
+]
 
-For a prime power (q=p^r), let
-\[
-w_q=1-\frac{\log q}{\log c}.
-\]
-
-Using the localized translation primitive
-\[
-B_{ij}(w)=\int_0^w\psi_i(t)\psi_j(t)\,dt,
-\]
-the finite arithmetic block is
-\[
-P_{ij}(c,N)
+The exact arithmetic contribution is
+[
+A_{m prime}
 =
-\sum_{q\le c}
--\frac{2\log p}{\sqrt q}\,
-B_{ij}(w_q),
-\]
-with (q=p^r).
+-sum_{q=p^m<c}
+rac{Lambda(q)}{sqrt q}
+left(S_{r_q}+S_{r_q}^{*}ight).
+]
 
-The implementation derives (B_{ij}) from the exponential representation
-\[
-\sqrt2\sin(2\pi k w)
+Therefore its finite odd-basis matrix is
+[
+(P_{m odd})_{ij}
 =
-\frac{e^{2\pi i k w}-e^{-2\pi i k w}}{\sqrt2,i},
-\]
-so no cosine-sector matrix is transformed or assumed equivalent.
+-sum_{q=p^m<c}rac{Lambda(q)}{sqrt q}
+left(
+int_{-1}^{1-r_q}phi_i(x)phi_j(x+r_q),dx+
+int_{-1}^{1-r_q}phi_j(x)phi_i(x+r_q),dx
+ight).
+]
 
-## 3. Automatic zero-mean moment
+The integral is evaluated exactly by the product-to-sum identity for sines; no quadrature approximation is needed.
 
-Every sine basis function satisfies
-\[
-\int_0^1\psi_k(w)\,dw=0.
-\]
+### Important correction
 
-Hence every finite odd sine combination has zero mean:
-\[
-M_0(v)=0
-\]
-identically.
+The first odd-sector prototype used
+[
+int_0^{omega_q}psi_i(t)psi_j(t),dt.
+]
+That is a same-point truncated Gram integral, not the physical translated operator. It has therefore been **retired as the arithmetic representation**.
 
-This is a genuine structural difference from the even cosine sector, where (M_0) is an active pole-neutral constraint.
+This correction is itself a successful normalization audit: we detected that the old prototype could not be identified with the physical shift before allowing it into the proof chain.
 
-It does **not** establish the second pole-neutral condition associated with the full Weil normalization. That condition remains to be derived from the physical odd transform.
+## 3. CI result
 
-## 4. CI verification
+The corrected physical translation implementation is now the source of the odd arithmetic diagnostic.
 
-The diagnostic was executed in GitHub Actions with Python 3.12 and mpmath 1.4.1.
+At (c=20,N=6), the physical arithmetic block has
+[
+lambda_{min}approx -0.5538245571
+]
+in the finite odd basis.
 
-For (c=20,N=6):
-- (M_0) numerical residual: (1.14\times10^{-66});
-- prime matrix asymmetry: exactly (0) at reported precision;
-- minimum eigenvalue of the prime block: (-2.52981845180254112).
+This value is a property of the arithmetic block alone. It is neither a proof nor a counterexample to RH.
 
-The negative eigenvalue is **not a counterexample to RH**. It is the arithmetic block alone; the archimedean/normalization terms have not yet been attached.
+## 4. Archimedean parity check
 
-## 5. Remaining load-bearing derivation
+For the localized convolution
+[
+K_{ij}(omega)=
+int_0^omega
+psi_i(t)psi_j(omega-t),dt,
+]
+the odd basis satisfies
+[
+K_{ij}(1)=-2delta_{ij}.
+]
 
-The next step is to derive, from the physical odd Weil form rather than analogy:
+Consequently the anchor term in the existing resolvent identity changes sign relative to the even cosine sector. This has been isolated in a separate diagnostic and is **not yet identified with the complete physical odd operator**.
 
-1. the odd archimedean/resolvent block;
-2. the exact pole functional(s) in the odd sector;
-3. the polar (sinh(y/2)) rank-one term in the sine basis;
-4. the normalization factors connecting physical (y) to the finite (w)-representation;
-5. the exact equality between the resulting odd finite form and the compressed physical operator.
+## 5. Remaining load-bearing bridge
 
-Only after those identities are proved can the zero-extension compression theorem be applied to the finite matrices.
+The complete physical odd operator must be assembled from, and normalized against,
+[
+H_{m Leg}+c_0(a)I+V-K_{gamma,a}
+-2|s_aanglelangle s_a|
+-sum_{q<c}rac{Lambda(q)}{sqrt q}(S_{r_q}+S_{r_q}^*),
+]
+where
+[
+s_a(x)=sqrt a,sinh(ax/2).
+]
+
+The remaining obligations are:
+
+1. independently derive this complete physical form from the repository's Weil normalization;
+2. derive the (H_{m Leg}), endpoint potential, gamma, and polar matrices in the same sine basis;
+3. prove the normalization equivalence to the repository's existing finite formulation;
+4. then prove exact zero-extension compression.
+
+Until those identities are established, no finite odd matrix is promoted to a proof object.
 
 **No RH claim is made.**
