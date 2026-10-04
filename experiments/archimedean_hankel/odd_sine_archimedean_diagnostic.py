@@ -18,8 +18,8 @@ import mpmath as mp
 
 def _terms(i: int, j: int):
     inv = 1 / mp.sqrt(2)
-    ci = { -i: 1/(2j*mp.sqrt(2)), i: -1/(2j*mp.sqrt(2)) }
-    cj = { -j: 1/(2j*mp.sqrt(2)), j: -1/(2j*mp.sqrt(2)) }
+    ci = { -i: 1/(mp.sqrt(2)*1j), i: -1/(mp.sqrt(2)*1j) }
+    cj = { -j: 1/(mp.sqrt(2)*1j), j: -1/(mp.sqrt(2)*1j) }
     out=[]
     for m,cm in ci.items():
         for n,cn in cj.items():
