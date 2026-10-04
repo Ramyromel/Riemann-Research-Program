@@ -1,15 +1,13 @@
-"""Direct physical/spectral Archimedean normalization bridge.
+"""Direct physical/spectral Archimedean normalization audit.
 
-For the physical odd basis e_k(y)=a^{-1/2} sin(k*pi*y/a), the critical-line
-Laplace/Fourier transform is evaluated in closed form and inserted directly
-into the classical archimedean spectral integral
+The physical odd basis e_k(y)=a^{-1/2} sin(k*pi*y/a) is transformed in closed
+form and inserted into the classical archimedean spectral integral. The result
+is compared with the physical-coordinate kernel H_Leg + c0 I + V - K_gamma.
 
-    (1/(2*pi)) int h_+(r) F_i(ir) conj(F_j(ir)) dr,
-    h_+(r)=Re psi(1/4+ir/2)-log(pi).
-
-This audit compares that independently assembled spectral matrix with the
-physical-coordinate kernel H_Leg + c0 I + V - K_gamma used by the odd-channel
-construction. It is a normalization audit only: no positivity or RH claim.
+The comparison is intentionally non-certifying: finite spectral truncation and
+quadrature produce a numerical residual. A nonzero residual is retained as
+evidence that the exact normalization bridge still needs an analytic proof.
+No positivity or RH claim is made.
 """
 
 from __future__ import annotations
@@ -18,6 +16,7 @@ import math
 import numpy as np
 from scipy.integrate import simpson
 from scipy.special import digamma
+
 from direct_physical_odd_archimedean_audit import physical_archimedean_matrix
 
 
@@ -55,11 +54,9 @@ def run(c: int = 8, n: int = 2) -> float:
     print("spectral_lambda_min=", np.linalg.eigvalsh(spectral)[0])
     print("frobenius_difference=", np.linalg.norm(diff, ord="fro"))
     print("max_entry_difference=", err)
-    print("classification=NUMERICALLY_SUPPORTED_NORMALIZATION_BRIDGE")
+    print("classification=OPEN_ANALYTIC_NORMALIZATION_BRIDGE")
     return err
 
 
 if __name__ == "__main__":
-    error = run()
-    if error >= 2.0e-2:
-        raise AssertionError(f"physical/spectral mismatch too large: {error}")
+    run()
