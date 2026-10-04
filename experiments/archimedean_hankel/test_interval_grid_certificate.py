@@ -11,6 +11,10 @@ def test_grid_cases_are_certified():
         row = run_case(c, 2, 1000, 60)
         assert row["finite_upper"] > row["finite_lower"]
         assert row["tail_upper"] > 0
+        assert row["corrected_lower"] < row["finite_lower"]
+        assert row["corrected_upper"] > row["finite_upper"]
+        assert row["corrected_lower"] == row["finite_lower"] - row["tail_upper"]
+        assert row["corrected_upper"] == row["finite_upper"] + row["tail_upper"]
         assert row["certified_positive"], row
 
 
