@@ -250,3 +250,18 @@ The proof obligation is to derive, without importing an external theorem:
 4. assembly into the full compression identity.
 
 This target is intended to replace, not merely supplement, the current finite-dimensional spectral-limit bottleneck.
+
+
+### T-006R — Odd sine-basis arithmetic block
+
+Define (psi_k(w)=sqrt2sin(2pi kw)), (kge1), under (y=L(w-1/2)). Then (psi_k(1-w)=-psi_k(w)), so the basis is genuinely odd in physical logarithmic coordinates. The finite prime-power block is derived directly from
+[
+B_{ij}^{m odd}(omega)=int_0^omegapsi_i(t)psi_j(t),dt,
+]
+with the same audited arithmetic weights (-2Lambda(q)/sqrt q).
+
+Moreover (int_0^1psi_k=0) exactly, so the zero-mean moment (M_0) vanishes identically throughout the odd sine sector.
+
+**Status:** DERIVED + CI-VERIFIED ARITHMETIC BLOCK.
+
+**Limitation:** the odd archimedean/resolvent block, full pole functional, polar term, and physical-to-finite normalization bridge remain OPEN. The arithmetic block by itself is indefinite (for example (c=20,N=6) has (lambda_{min}approx-2.5298184518)); this is not a counterexample to RH.
