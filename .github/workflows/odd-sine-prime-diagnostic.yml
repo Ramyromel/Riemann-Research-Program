@@ -1,0 +1,22 @@
+name: Odd Sine Prime Diagnostic
+
+on:
+  push:
+    branches:
+      - research/support-monotone-route
+  pull_request:
+    branches:
+      - research/support-monotone-route
+      - main
+
+jobs:
+  odd-sine-prime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - run: pip install mpmath==1.4.1
+      - run: python experiments/archimedean_hankel/odd_sine_prime_diagnostic.py
