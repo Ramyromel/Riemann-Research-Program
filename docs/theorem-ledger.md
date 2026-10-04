@@ -206,3 +206,19 @@ At (c=20), high-precision evaluation gives a positive truncated value at (N_T=10
 A dedicated `mpmath.iv` enclosure plus the derived second-order Archimedean tail bound certifies the corrected lower endpoint for the specific case (c=20,N=2,T=1000). CI execution is green.
 
 **Not proved:** this covers only one cutoff and one Galerkin dimension. It does not imply finite positivity for general (N,c), global Weil positivity, the infinite-dimensional limit, or RH.
+
+
+### T-006O — N=2 interval-certified cutoff grid
+
+For N=2 and T=1000, the exact pole-neutral scalar reduction has been enclosed with interval arithmetic at 60 decimal digits for the explicit cutoff grid c ∈ {10, 20, 30, 50, 100}. The conservative second-order Archimedean tail upper bound is subtracted from the finite lower endpoint before certification. GitHub Actions executed the grid calculation and its two pytest checks successfully.
+
+The corrected lower endpoints are approximately:
+- c=10: 9.9830624573e-5
+- c=20: 3.3323946467e-5
+- c=30: 2.7126009449e-5
+- c=50: 3.5127976196e-6
+- c=100: 4.0722258204e-6
+
+**Status:** INTERVAL-CERTIFIED — EXPLICIT LOCAL FINITE GRID.
+
+**Limitations:** this certifies only the listed five cutoffs at N=2 and T=1000. It does not prove finite positivity for arbitrary c or N, does not address N>2 certified nullspace reduction, does not close the infinite-dimensional limit, and does not prove RH. A failed certificate outside this grid would be INCONCLUSIVE rather than a counterexample unless the enclosure itself is mathematically shown to exclude zero.

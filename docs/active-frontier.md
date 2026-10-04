@@ -142,8 +142,17 @@ See `experiments/sum_level_hankel/` and `research-log/2026-09-22-sum-level-hanke
 
 ## F11 — First interval-certified pole-neutral scalar case
 
-The N=2 pole-neutral sector at c=20 reduces exactly to one scalar Rayleigh quotient. A dedicated interval-arithmetic implementation now encloses the finite Prime + Archimedean expression and combines it with the derived second-order Archimedean tail envelope. GitHub Actions independently executes the certificate and its pytest checks successfully.
+The N=2 pole-neutral sector at c=20 reduces exactly to one scalar Rayleigh quotient. A dedicated interval-arithmetic implementation encloses the finite Prime + Archimedean expression and combines it with the derived second-order Archimedean tail envelope.
 
 **Status:** F11 is INTERVAL-CERTIFIED for the single finite parameter case (c=20,N=2,T=1000). This is a local certification only; uniform finite positivity and the global Weil limit remain open.
 
 See `docs/n2-interval-certificate.md` and `experiments/archimedean_hankel/n2_interval_certificate.py`.
+
+
+## F12 — Interval-certified N=2 cutoff grid
+
+The same interval construction has now been independently executed across the finite cutoff grid c = 10, 20, 30, 50, 100 with N=2 and T=1000. GitHub Actions reports all five corrected lower endpoints strictly positive, and the dedicated pytest suite passes. The certified corrected lower margins are approximately 9.9831e-5, 3.3324e-5, 2.7126e-5, 3.5128e-6, and 4.0722e-6 respectively.
+
+**Status:** F12 is INTERVAL-CERTIFIED on this explicit finite grid only. It is not uniform in c, does not cover N>2, and does not establish the global Weil positivity limit or RH.
+
+See `docs/interval-grid-certificate.md` and `experiments/archimedean_hankel/interval_grid_certificate.py`.
