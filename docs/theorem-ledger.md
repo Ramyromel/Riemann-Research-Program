@@ -265,3 +265,21 @@ Moreover (int_0^1psi_k=0) exactly, so the zero-mean moment (M_0) vanishes identi
 **Status:** DERIVED + CI-VERIFIED ARITHMETIC BLOCK.
 
 **Limitation:** the odd archimedean/resolvent block, full pole functional, polar term, and physical-to-finite normalization bridge remain OPEN. The arithmetic block by itself is indefinite (for example (c=20,N=6) has (lambda_{min}approx-2.5298184518)); this is not a counterexample to RH.
+
+
+### T-006S — Corrected physical odd prime translation
+
+The first odd-sine arithmetic prototype was rejected by normalization audit: its truncated same-point Gram integral did not represent the physical translation operator. The arithmetic block has now been re-derived from
+[
+S_r f(x)=\mathbf 1_{(-1,1)}(x+r)f(x+r),qquad r=\log(q)/a,quad a=\tfrac12\log c,
+]
+in the orthonormal physical odd basis (phi_k(x)=\sin(k\pi x)). The exact finite entries use product-to-sum integration, and the contribution is
+[
+-\sum_{q=p^m<c}\frac{\Lambda(q)}{\sqrt q}(S_{r_q}+S_{r_q}^*).
+]
+
+At (c=20,N=6), the arithmetic-only minimum eigenvalue is approximately (-0.5538245571).
+
+**Status:** DERIVED / NORMALIZATION-AUDITED / CI-VERIFICATION PENDING ON LATEST COMMIT.
+
+**Consequence:** the previous odd prototype is explicitly retired and must not be used in any proof chain. The complete physical odd operator, including (H_{\rm Leg}), (V), (K_{\gamma,a}), the polar rank-one term, and the exact normalization bridge, remains OPEN.
