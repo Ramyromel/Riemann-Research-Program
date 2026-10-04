@@ -156,3 +156,26 @@ The same interval construction has now been independently executed across the fi
 **Status:** F12 is INTERVAL-CERTIFIED on this explicit finite grid only. It is not uniform in c, does not cover N>2, and does not establish the global Weil positivity limit or RH.
 
 See `docs/interval-grid-certificate.md` and `experiments/archimedean_hankel/interval_grid_certificate.py`.
+
+
+## F13 — N=3 matrix frontier
+
+The N=3 pole-neutral space is two-dimensional. GitHub Actions independently executed the finite resolvent diagnostic at c = 10, 20, 50 and T = 1000, 4000. The smallest restricted eigenvalue moves toward zero as T increases.
+
+**Status:** DISCOVERY / OPEN / LOAD-BEARING. This is not a positivity certificate and not a counterexample.
+
+See `docs/n3-matrix-diagnostic.md` and Issue #32.
+
+## F14 — Support-monotone compression route
+
+A new proof architecture is now an explicit project target: derive an exact zero-extension compression identity for the localized Weil operator,
+[
+E_{a,b}^{*}A_bE_{a,b}=A_a,
+]
+with physical support radius (a=L/2). If established, positivity on a cofinal sequence of support endpoints would imply positivity at every finite support radius, eliminating the current Galerkin (N\to\infty) limit-transfer bottleneck.
+
+A September 2026 independent preprint uses this architecture, but its results are not imported. The identity and all cancellations must be re-derived in this repository's normalization.
+
+**Status:** TARGET / UNVERIFIED.
+
+See `docs/support-monotone-route.md` and the corresponding GitHub issue.
