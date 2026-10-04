@@ -93,7 +93,7 @@ def arch_matrix(c,N,n_terms=1000):
 def audit(c=20,N=6,n_terms=1000,dps=50):
     mp.mp.dps=dps
     A=arch_matrix(c,N,n_terms)
-    k1_err=max(abs(K_entry(i,j,mp.mpf("1"))-(-2 if i==j else 0))
+    k1_err=max(abs(2*K_entry(i,j,mp.mpf("1"))-(-2 if i==j else 0))
                for i in range(1,N+1) for j in range(1,N+1))
     return A,k1_err
 
