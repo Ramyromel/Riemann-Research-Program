@@ -104,4 +104,8 @@ if __name__=="__main__":
     print("prime_min =",mp.nstr(min(mp.eigsy(P,eigvals_only=True)),18))
     print("arch_min =",mp.nstr(min(mp.eigsy(A,eigvals_only=True)),18))
     print("combined_min =",mp.nstr(min(vals),18))
-    k1_err = max(abs(K_entry(i, j, mp.mpf("1")) - (-2 if i == j else 0)) for i in range(1, N + 1) for j in range(1, N + 1))\n    print("K1_max_error =", mp.nstr(k1_err, 18))\n    if k1_err > mp.mpf("1e-40"):\n        raise AssertionError("odd convolution endpoint K(1) != -2 I")\n    print("classification = CANDIDATE ODD ARCHIMEDEAN + PRIME RESTRICTION")
+    k1_err = max(abs(K_entry(i, j, mp.mpf("1")) - (-2 if i == j else 0)) for i in range(1, N + 1) for j in range(1, N + 1))
+    print("K1_max_error =", mp.nstr(k1_err, 18))
+    if k1_err > mp.mpf("1e-40"):
+        raise AssertionError("odd convolution endpoint K(1) != -2 I")
+    print("classification = CANDIDATE ODD ARCHIMEDEAN + PRIME RESTRICTION")
