@@ -6,6 +6,13 @@ on:
       - "experiments/odd_sine_archimedean_diagnostic.py"
       - "experiments/test_odd_sine_archimedean_diagnostic.py"
       - ".github/workflows/odd-sine-archimedean.yml"
+  pull_request:
+    branches:
+      - research/support-monotone-route
+    paths:
+      - "experiments/odd_sine_archimedean_diagnostic.py"
+      - "experiments/test_odd_sine_archimedean_diagnostic.py"
+      - ".github/workflows/odd-sine-archimedean.yml"
   workflow_dispatch:
 
 jobs:
