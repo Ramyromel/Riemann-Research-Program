@@ -7,6 +7,11 @@ on:
       - "experiments/archimedean_hankel/n3_tail_structure.py"
       - "experiments/archimedean_hankel/archimedean_hankel.py"
       - ".github/workflows/n3-tail-structure.yml"
+  pull_request:
+    paths:
+      - "experiments/archimedean_hankel/n3_tail_structure.py"
+      - "experiments/archimedean_hankel/archimedean_hankel.py"
+      - ".github/workflows/n3-tail-structure.yml"
 
 jobs:
   audit:
