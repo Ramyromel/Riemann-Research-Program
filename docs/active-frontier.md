@@ -179,3 +179,18 @@ A September 2026 independent preprint uses this architecture, but its results ar
 **Status:** TARGET / UNVERIFIED.
 
 See `docs/support-monotone-route.md` and the corresponding GitHub issue.
+
+
+## F15 — Odd sine-sector arithmetic bridge
+
+The parity audit has now been converted into an explicit derivation target. A new basis
+[
+psi_k(w)=sqrt2sin(2pi kw)
+]
+is odd under physical reflection (ymapsto-y), unlike the repository's existing cosine basis. The finite prime-power translation block has been implemented directly in this basis; no cosine-to-sine equivalence is assumed. The zero-mean moment vanishes identically in this sector.
+
+GitHub Actions verified the diagnostic at (c=20,N=6): (M_0) residual (1.14	imes10^{-66}), reported matrix asymmetry (0), and arithmetic-block minimum eigenvalue (-2.5298184518).
+
+**Status:** F15 is DERIVED + CI-VERIFIED for the arithmetic block only. The decisive next task is the physical odd Archimedean/resolvent and pole normalization derivation. The negative arithmetic eigenvalue is not an RH counterexample because the complementary Weil terms have not yet been included.
+
+See `docs/odd-sine-basis-derivation.md` and Issue #36.
