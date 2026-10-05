@@ -278,29 +278,35 @@ At (c=20,N=6), the arithmetic-only minimum eigenvalue is approximately (-0.55382
 **Consequence:** the previous odd prototype is explicitly retired and must not be used in any proof chain. The complete physical odd operator, including (H_{\rm Leg}), (V), (K_{\gamma,a}), the polar rank-one term, and the exact normalization bridge, remains OPEN.
 
 
+
 ### T-007B — Parity-correct odd Archimedean resolvent bridge
 
-A direct physical/spectral audit at (c=20,N=6) independently assembled the physical odd Archimedean form
+A direct physical/spectral audit at c=20,N=6 independently assembled the physical odd Archimedean form
 [
 H_{\rm Leg}+c_0I+V-K_{\gamma,a}
 ]
-and compared it with the critical-line spectral integral using the exact sine transform. The two agree numerically to the finite spectral-window/quadrature error:
-[
-\lambda_{\min}^{\rm spectral}\approx-1.46061677234.
-]
+and compared it with the critical-line spectral integral using the exact sine transform. At finite spectral window R=500 with 100001 samples and physical quadrature order 480:
+- physical lambda_min ≈ -1.46062479056;
+- spectral lambda_min ≈ -1.46061677234;
+- Frobenius residual ≈ 5.9231×10^-4;
+- maximum entry residual ≈ 4.2043×10^-4.
 
-The original odd Volterra prototype was then corrected at the structural level. For a real odd test function, the Fourier transform of (|F|^2) is an autocorrelation, which is the negative of the odd sine convolution. After this sign correction, the resulting resolvent matrix is related to the direct spectral matrix by the exact parity basis conjugation
-[
-D=\operatorname{diag}((-1)^1,(-1)^2,\ldots,(-1)^N),
-qquad
-A_{\rm spectral}=D A_{\rm odd}D.
-]
+The residual is consistent with finite quadrature/window effects and is not treated as an exact equality.
 
-At (c=20,N=6), (n_{\rm terms}=3000), (R=500), and (100001) spectral samples:
-- transported-vs-spectral Frobenius discrepancy: (2.56\times10^{-6});
-- maximum entry discrepancy: (1.35\times10^{-6});
-- odd and transported minimum eigenvalue: approximately (-1.46061670165).
+The original odd Volterra prototype had a sign/convention mismatch. The autocorrelation experiment showed that the direct spectral matrix has the same diagonal entries and alternating off-diagonal signs relative to the corrected odd Volterra matrix. Applying the exact basis map
+[
+phi_k(2w-1)=(-1)^k sin(2pi k w)
+]
+gives
+[
+A_{\rm spectral}=D A_{\rm odd}D,
+\qquad D=\operatorname{diag}((-1)^1,\ldots,(-1)^N).
+]
+At c=20,N=6,n_terms=3000,R=500,100001 spectral samples:
+- transported-vs-spectral Frobenius discrepancy: 2.56×10^-6;
+- maximum entry discrepancy: 1.35×10^-6;
+- odd and transported minimum eigenvalue: approximately -1.46061670165.
 
 **Status:** NUMERICALLY SUPPORTED / PARITY-CORRECTED / CI-PASSED.
 
-**What remains open:** convert the observed parity relation into a line-by-line analytic identity under the repository's exact Fourier normalization, prove the infinite resolvent-tail equality (not merely truncation agreement), and then connect this block to the full prime + polar + pole-neutral physical operator. This does not establish positivity or RH.
+**Remaining proof obligations:** establish the D-conjugation analytically from the exact repository Fourier normalization; prove the infinite resolvent-tail identity rather than finite truncation agreement; then connect this Archimedean block to the exact prime-power and polar blocks under the same normalization. No positivity or RH claim follows from T-007B.
