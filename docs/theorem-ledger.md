@@ -273,7 +273,7 @@ in the orthonormal physical odd basis (phi_k(x)=\sin(k\pi x)). The exact finite 
 
 At (c=20,N=6), the arithmetic-only minimum eigenvalue is approximately (-0.5538245571).
 
-**Status:** DERIVED / NORMALIZATION-AUDITED / CI-VERIFICATION PENDING ON LATEST COMMIT.
+**Status:** DERIVED / NORMALIZATION-AUDITED / CI-PASSED ON LATEST COMMIT.
 
 **Consequence:** the previous odd prototype is explicitly retired and must not be used in any proof chain. The complete physical odd operator, including (H_{\rm Leg}), (V), (K_{\gamma,a}), the polar rank-one term, and the exact normalization bridge, remains OPEN.
 
@@ -310,3 +310,20 @@ At c=20,N=6,n_terms=3000,R=500,100001 spectral samples:
 **Status:** NUMERICALLY SUPPORTED / PARITY-CORRECTED / CI-PASSED.
 
 **Remaining proof obligations:** establish the D-conjugation analytically from the exact repository Fourier normalization; prove the infinite resolvent-tail identity rather than finite truncation agreement; then connect this Archimedean block to the exact prime-power and polar blocks under the same normalization. No positivity or RH claim follows from T-007B.
+
+
+### T-007C — Exact parity-conjugation identity target
+
+The numerical audit establishes the expected basis map
+[
+sin(kpi(2w-1))=(-1)^ksin(2pi k w),
+]
+hence the finite-basis conjugation (A_{m phys}=D A_{m odd}D),
+(D_{kk}=(-1)^k). Independent CI checks at (c=8,N=2) and (c=20,N=6)
+pass with finite spectral/truncation residuals below the test threshold.
+
+**Status:** NUMERICALLY SUPPORTED / ANALYTIC DERIVATION REQUIRED.
+
+The remaining task is to derive this identity as part of the complete
+repository Fourier/Mellin normalization, rather than treating the numerical
+matrix agreement as proof of the infinite-dimensional operator identity.
