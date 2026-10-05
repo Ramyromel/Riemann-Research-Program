@@ -8,13 +8,13 @@ a mismatch blocks promotion of the resolvent identity.
 from __future__ import annotations
 import numpy as np
 from direct_physical_spectral_archimedean_audit import spectral_archimedean_matrix
-from archimedean_hankel.odd_sine_archimedean_diagnostic import archimedean_matrix
+from archimedean_hankel.odd_sine_archimedean_diagnostic import arch_matrix
 
 
 def run(c: int = 20, n: int = 6):
     a = 0.5 * np.log(c)
     spectral = spectral_archimedean_matrix(a, n, R=500.0, nr=100001)
-    candidate = np.asarray(archimedean_matrix(c, n, n_terms=3000, dps=50).tolist(), dtype=float)
+    candidate = np.asarray(arch_matrix(c, n, n_terms=3000, dps=50).tolist(), dtype=float)
     diff = candidate - spectral
     print(f"c={c} n={n} a={a:.16g}")
     print("spectral_lambda_min=", np.linalg.eigvalsh(spectral)[0])
