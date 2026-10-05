@@ -1,0 +1,20 @@
+name: Direct physical odd Archimedean audit
+
+on:
+  push:
+    paths:
+      - "experiments/direct_physical_odd_archimedean_audit.py"
+      - "experiments/odd_sine_archimedean_diagnostic.py"
+      - ".github/workflows/direct-physical-odd-archimedean.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip numpy
+      - run: python experiments/test_direct_physical_odd_archimedean_audit.py

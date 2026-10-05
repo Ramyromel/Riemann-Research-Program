@@ -252,20 +252,13 @@ The proof obligation is to derive, without importing an external theorem:
 This target is intended to replace, not merely supplement, the current finite-dimensional spectral-limit bottleneck.
 
 
-### T-006R — Odd sine-basis arithmetic block
+### T-006R — Retired odd sine arithmetic prototype
 
-Define (psi_k(w)=sqrt2sin(2pi kw)), (kge1), under (y=L(w-1/2)). Then (psi_k(1-w)=-psi_k(w)), so the basis is genuinely odd in physical logarithmic coordinates. The finite prime-power block is derived directly from
-[
-B_{ij}^{m odd}(omega)=int_0^omegapsi_i(t)psi_j(t),dt,
-]
-with the same audited arithmetic weights (-2Lambda(q)/sqrt q).
+The first odd-sine arithmetic implementation used a same-point Gram integral. A normalization audit established that this object is not the physical translation operator required by the prime-power explicit formula.
 
-Moreover (int_0^1psi_k=0) exactly, so the zero-mean moment (M_0) vanishes identically throughout the odd sine sector.
+**Status:** RETIRED / INVALID FOR PROOF CHAIN.
 
-**Status:** DERIVED + CI-VERIFIED ARITHMETIC BLOCK.
-
-**Limitation:** the odd archimedean/resolvent block, full pole functional, polar term, and physical-to-finite normalization bridge remain OPEN. The arithmetic block by itself is indefinite (for example (c=20,N=6) has (lambda_{min}approx-2.5298184518)); this is not a counterexample to RH.
-
+The result is retained only as audit history. The corrected physical translation is recorded under T-006S.
 
 ### T-006S — Corrected physical odd prime translation
 
@@ -280,6 +273,57 @@ in the orthonormal physical odd basis (phi_k(x)=\sin(k\pi x)). The exact finite 
 
 At (c=20,N=6), the arithmetic-only minimum eigenvalue is approximately (-0.5538245571).
 
-**Status:** DERIVED / NORMALIZATION-AUDITED / CI-VERIFICATION PENDING ON LATEST COMMIT.
+**Status:** DERIVED / NORMALIZATION-AUDITED / CI-PASSED ON LATEST COMMIT.
 
 **Consequence:** the previous odd prototype is explicitly retired and must not be used in any proof chain. The complete physical odd operator, including (H_{\rm Leg}), (V), (K_{\gamma,a}), the polar rank-one term, and the exact normalization bridge, remains OPEN.
+
+
+
+### T-007B — Parity-correct odd Archimedean resolvent bridge
+
+A direct physical/spectral audit at c=20,N=6 independently assembled the physical odd Archimedean form
+[
+H_{\rm Leg}+c_0I+V-K_{\gamma,a}
+]
+and compared it with the critical-line spectral integral using the exact sine transform. At finite spectral window R=500 with 100001 samples and physical quadrature order 480:
+- physical lambda_min ≈ -1.46062479056;
+- spectral lambda_min ≈ -1.46061677234;
+- Frobenius residual ≈ 5.9231×10^-4;
+- maximum entry residual ≈ 4.2043×10^-4.
+
+The residual is consistent with finite quadrature/window effects and is not treated as an exact equality.
+
+The original odd Volterra prototype had a sign/convention mismatch. The autocorrelation experiment showed that the direct spectral matrix has the same diagonal entries and alternating off-diagonal signs relative to the corrected odd Volterra matrix. Applying the exact basis map
+[
+phi_k(2w-1)=(-1)^k sin(2pi k w)
+]
+gives
+[
+A_{\rm spectral}=D A_{\rm odd}D,
+\qquad D=\operatorname{diag}((-1)^1,\ldots,(-1)^N).
+]
+At c=20,N=6,n_terms=3000,R=500,100001 spectral samples:
+- transported-vs-spectral Frobenius discrepancy: 2.56×10^-6;
+- maximum entry discrepancy: 1.35×10^-6;
+- odd and transported minimum eigenvalue: approximately -1.46061670165.
+
+**Status:** NUMERICALLY SUPPORTED / PARITY-CORRECTED / CI-PASSED.
+
+**Remaining proof obligations:** establish the D-conjugation analytically from the exact repository Fourier normalization; prove the infinite resolvent-tail identity rather than finite truncation agreement; then connect this Archimedean block to the exact prime-power and polar blocks under the same normalization. No positivity or RH claim follows from T-007B.
+
+
+### T-007C — Exact parity-conjugation identity target
+
+The numerical audit establishes the expected basis map
+[
+sin(kpi(2w-1))=(-1)^ksin(2pi k w),
+]
+hence the finite-basis conjugation (A_{m phys}=D A_{m odd}D),
+(D_{kk}=(-1)^k). Independent CI checks at (c=8,N=2) and (c=20,N=6)
+pass with finite spectral/truncation residuals below the test threshold.
+
+**Status:** NUMERICALLY SUPPORTED / ANALYTIC DERIVATION REQUIRED.
+
+The remaining task is to derive this identity as part of the complete
+repository Fourier/Mellin normalization, rather than treating the numerical
+matrix agreement as proof of the infinite-dimensional operator identity.

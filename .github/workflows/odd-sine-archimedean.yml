@@ -1,0 +1,27 @@
+name: Odd sine Archimedean diagnostic
+
+on:
+  push:
+    paths:
+      - "experiments/odd_sine_archimedean_diagnostic.py"
+      - "experiments/test_odd_sine_archimedean_diagnostic.py"
+      - ".github/workflows/odd-sine-archimedean.yml"
+  pull_request:
+    branches:
+      - research/support-monotone-route
+    paths:
+      - "experiments/odd_sine_archimedean_diagnostic.py"
+      - "experiments/test_odd_sine_archimedean_diagnostic.py"
+      - ".github/workflows/odd-sine-archimedean.yml"
+  workflow_dispatch:
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip mpmath
+      - run: python experiments/test_odd_sine_archimedean_diagnostic.py
