@@ -252,20 +252,13 @@ The proof obligation is to derive, without importing an external theorem:
 This target is intended to replace, not merely supplement, the current finite-dimensional spectral-limit bottleneck.
 
 
-### T-006R — Odd sine-basis arithmetic block
+### T-006R — Retired odd sine arithmetic prototype
 
-Define (psi_k(w)=sqrt2sin(2pi kw)), (kge1), under (y=L(w-1/2)). Then (psi_k(1-w)=-psi_k(w)), so the basis is genuinely odd in physical logarithmic coordinates. The finite prime-power block is derived directly from
-[
-B_{ij}^{m odd}(omega)=int_0^omegapsi_i(t)psi_j(t),dt,
-]
-with the same audited arithmetic weights (-2Lambda(q)/sqrt q).
+The first odd-sine arithmetic implementation used a same-point Gram integral. A normalization audit established that this object is not the physical translation operator required by the prime-power explicit formula.
 
-Moreover (int_0^1psi_k=0) exactly, so the zero-mean moment (M_0) vanishes identically throughout the odd sine sector.
+**Status:** RETIRED / INVALID FOR PROOF CHAIN.
 
-**Status:** DERIVED + CI-VERIFIED ARITHMETIC BLOCK.
-
-**Limitation:** the odd archimedean/resolvent block, full pole functional, polar term, and physical-to-finite normalization bridge remain OPEN. The arithmetic block by itself is indefinite (for example (c=20,N=6) has (lambda_{min}approx-2.5298184518)); this is not a counterexample to RH.
-
+The result is retained only as audit history. The corrected physical translation is recorded under T-006S.
 
 ### T-006S — Corrected physical odd prime translation
 
@@ -283,3 +276,31 @@ At (c=20,N=6), the arithmetic-only minimum eigenvalue is approximately (-0.55382
 **Status:** DERIVED / NORMALIZATION-AUDITED / CI-VERIFICATION PENDING ON LATEST COMMIT.
 
 **Consequence:** the previous odd prototype is explicitly retired and must not be used in any proof chain. The complete physical odd operator, including (H_{\rm Leg}), (V), (K_{\gamma,a}), the polar rank-one term, and the exact normalization bridge, remains OPEN.
+
+
+### T-007B — Parity-correct odd Archimedean resolvent bridge
+
+A direct physical/spectral audit at (c=20,N=6) independently assembled the physical odd Archimedean form
+[
+H_{\rm Leg}+c_0I+V-K_{\gamma,a}
+]
+and compared it with the critical-line spectral integral using the exact sine transform. The two agree numerically to the finite spectral-window/quadrature error:
+[
+\lambda_{\min}^{\rm spectral}\approx-1.46061677234.
+]
+
+The original odd Volterra prototype was then corrected at the structural level. For a real odd test function, the Fourier transform of (|F|^2) is an autocorrelation, which is the negative of the odd sine convolution. After this sign correction, the resulting resolvent matrix is related to the direct spectral matrix by the exact parity basis conjugation
+[
+D=\operatorname{diag}((-1)^1,(-1)^2,\ldots,(-1)^N),
+qquad
+A_{\rm spectral}=D A_{\rm odd}D.
+]
+
+At (c=20,N=6), (n_{\rm terms}=3000), (R=500), and (100001) spectral samples:
+- transported-vs-spectral Frobenius discrepancy: (2.56\times10^{-6});
+- maximum entry discrepancy: (1.35\times10^{-6});
+- odd and transported minimum eigenvalue: approximately (-1.46061670165).
+
+**Status:** NUMERICALLY SUPPORTED / PARITY-CORRECTED / CI-PASSED.
+
+**What remains open:** convert the observed parity relation into a line-by-line analytic identity under the repository's exact Fourier normalization, prove the infinite resolvent-tail equality (not merely truncation agreement), and then connect this block to the full prime + polar + pole-neutral physical operator. This does not establish positivity or RH.
