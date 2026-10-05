@@ -17,7 +17,7 @@ import numpy as np
 from scipy.integrate import simpson
 from scipy.special import digamma
 
-from direct_physical_odd_archimedean_audit import physical_archimedean_matrix
+from physical_odd_archimedean import physical_archimedean_matrix
 
 
 def sine_transform(r: np.ndarray, a: float, k: int) -> np.ndarray:
