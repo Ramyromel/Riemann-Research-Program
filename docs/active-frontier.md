@@ -194,3 +194,16 @@ GitHub Actions verified the diagnostic at (c=20,N=6): (M_0) residual (1.14	imes1
 **Status:** F15 is DERIVED + CI-VERIFIED for the arithmetic block only. The decisive next task is the physical odd Archimedean/resolvent and pole normalization derivation. The negative arithmetic eigenvalue is not an RH counterexample because the complementary Weil terms have not yet been included.
 
 See `docs/odd-sine-basis-derivation.md` and Issue #36.
+
+
+## Finding F16 — Parity-correct odd Archimedean bridge
+
+The direct physical odd Archimedean kernel now matches the independently assembled critical-line spectral integral at (c=20,N=6) to finite numerical truncation error. The first odd Volterra prototype was diagnosed as using the sine convolution instead of the autocorrelation of (|F|^2). Reversing that kernel sign and applying the exact coordinate parity map
+[
+D=\operatorname{diag}((-1)^k)
+]
+produces a transported matrix whose Frobenius discrepancy from the direct spectral matrix is (2.56\times10^{-6}), with maximum entry discrepancy (1.35\times10^{-6}).
+
+**Status:** NUMERICALLY SUPPORTED / CI-PASSED / ANALYTIC CLOSURE OPEN.
+
+The remaining obligation is to prove the parity-conjugated resolvent identity and infinite-tail equality analytically under the repository's Fourier convention. This is a normalization bridge, not a positivity result.
