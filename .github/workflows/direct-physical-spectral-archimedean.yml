@@ -27,3 +27,4 @@ jobs:
           print("import_check=PASS")
           print("classification=OPEN_ANALYTIC_NORMALIZATION_BRIDGE")
           PY
+      - run: python experiments/direct_physical_spectral_archimedean_audit.py
