@@ -39,8 +39,4 @@ def run(c=20,n=6):
     print("corrected_lambda_min=",np.linalg.eigvalsh(candidate)[0])
     print("frobenius_difference=",np.linalg.norm(d))
     print("max_entry_difference=",np.max(np.abs(d)))
-    print("candidate_matrix=")\n    print(candidate)\n    print("spectral_matrix=")\n    print(spectral)\n    print("difference_matrix=")\n    print(d)\n    print("classification=EXPERIMENTAL_AUTOCORRELATION_SIGN_TEST")
-
-
-if __name__=="__main__":
-    run()
+    print("candidate_matrix=")\n    print(candidate)\n    print("spectral_matrix=")\n    print(spectral)\n    print("difference_matrix=")\n    print(d)\n    print("classification=EXPERIMENTAL_AUTOCORRELATION_SIGN_TEST")\n\n\nif __name__=="__main__":\n    run()\n
