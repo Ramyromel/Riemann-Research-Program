@@ -28,8 +28,8 @@ def sine_transform(r: np.ndarray, a: float, k: int) -> np.ndarray:
     )
 
 
-def spectral_archimedean_matrix(a: float, n: int, R: float = 180.0,
-                                nr: int = 24001) -> np.ndarray:
+def spectral_archimedean_matrix(a: float, n: int, R: float = 500.0,
+                                nr: int = 100001) -> np.ndarray:
     r = np.linspace(-R, R, nr)
     h = np.real(digamma(0.25 + 0.5j * r)) - math.log(math.pi)
     F = np.array([sine_transform(r, a, k) for k in range(1, n + 1)])
@@ -43,9 +43,9 @@ def spectral_archimedean_matrix(a: float, n: int, R: float = 180.0,
     return (A + A.T) / 2.0
 
 
-def run(c: int = 8, n: int = 2) -> float:
+def run(c: int = 20, n: int = 6) -> float:
     a = 0.5 * math.log(c)
-    physical = physical_archimedean_matrix(a, n, order=180)
+    physical = physical_archimedean_matrix(a, n, order=480)
     spectral = spectral_archimedean_matrix(a, n)
     diff = spectral - physical
     err = float(np.max(np.abs(diff)))
