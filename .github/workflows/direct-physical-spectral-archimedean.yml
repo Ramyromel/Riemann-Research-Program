@@ -29,3 +29,4 @@ jobs:
           PY
       - run: python experiments/direct_physical_spectral_archimedean_audit.py
       - run: python experiments/odd_sine_archimedean_bridge_audit.py
+      - run: python experiments/odd_sine_autocorrelation_resolvent_experiment.py
