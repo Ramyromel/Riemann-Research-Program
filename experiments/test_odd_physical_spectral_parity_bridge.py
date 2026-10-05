@@ -1,4 +1,4 @@
-from odd_sine_archimedean_resolvent_corrected import archimedean_matrix
+import sys\nsys.path.insert(0, "experiments/archimedean_hankel")\nfrom odd_sine_archimedean_resolvent_corrected import archimedean_matrix
 from direct_physical_spectral_archimedean_audit import spectral_archimedean_matrix
 import numpy as np
 
