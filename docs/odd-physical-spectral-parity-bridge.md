@@ -49,3 +49,47 @@ Before conjugation, the discrepancy had an alternating-sign pattern in off-diago
 6. Only then resume compression and positivity arguments.
 
 Current classification: **NUMERICALLY SUPPORTED / ANALYTIC BRIDGE OPEN**. No positivity result or Riemann Hypothesis proof follows from this audit.
+
+## Analytic tail control for the anchored resolvent series
+
+This section closes one convergence obligation for the *finite-basis scalar resolvent series*; it does not identify that series with the complete physical Weil operator.
+
+For fixed basis indices (i,j), let (K_{ij}:[0,1]\to\mathbb R) be the finite convolution kernel used by the corrected odd-sine construction. It is a finite trigonometric-polynomial expression plus polynomial factors, hence is continuously differentiable. Put (L=\log c>0), (a_n=n+\tfrac14), and
+\[
+B_n=\frac{K_{ij}(1)}{2a_n}
+-L\int_0^1 K_{ij}(w)e^{-2La_n(1-w)}\,dw.
+\]
+With \(\lambda_n=2La_n\), direct integration of the constant endpoint value gives the exact identity
+\[
+B_n=\frac{K_{ij}(1)e^{-\lambda_n}}{2a_n}
++L\int_0^1\bigl(K_{ij}(1)-K_{ij}(1-t)\bigr)e^{-\lambda_n t}\,dt.
+\]
+If \(M_{ij}=\sup_{0\le w\le1}|K'_{ij}(w)|\), the mean-value theorem yields
+\[
+|K_{ij}(1)-K_{ij}(1-t)|\le M_{ij}t.
+\]
+Consequently,
+\[
+|B_n|\le \frac{|K_{ij}(1)|e^{-2La_n}}{2a_n}
++\frac{L M_{ij}}{(2La_n)^2}
+=\frac{|K_{ij}(1)|e^{-2La_n}}{2a_n}
++\frac{M_{ij}}{4L a_n^2}.
+\]
+For every fixed \(c>1\), the right-hand side is summable in \(n\). Thus the anchored resolvent series converges absolutely entrywise for each fixed finite basis, and its tail after index \(T-1\) obeys the explicit bound
+\[
+\sum_{n=T}^{\infty}|B_n|
+\le \frac{|K_{ij}(1)|}{2}
+\sum_{n=T}^{\infty}\frac{e^{-2La_n}}{a_n}
++\frac{M_{ij}}{4L}\sum_{n=T}^{\infty}\frac1{a_n^2}.
+\]
+A simpler fully elementary bound follows from \(a_n\ge n\) for \(n\ge1\):
+\[
+\sum_{n=T}^{\infty}|B_n|
+\le \frac{|K_{ij}(1)|}{2}\frac{e^{-2L(T+1/4)}}{(T+1/4)(1-e^{-2L})}
++\frac{M_{ij}}{4L}\frac1{T-1/4},\qquad T\ge1,
+\]
+where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the second uses the integral estimate
+\(\sum_{n=T}^{\infty}(n+1/4)^{-2}\le (T-1/4)^{-1}\).
+
+**Scope warning.** This proves convergence and gives a conservative finite-basis tail estimate for the displayed anchored series. It does not prove positivity, uniformity as \(N\to\infty\) or \(c\downarrow1\), nor equality with the full physical Archimedean operator. The constants \(M_{ij}\) must be bounded or computed with certified arithmetic before the estimate can serve as a numerical certificate.
+
