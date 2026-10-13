@@ -88,8 +88,8 @@ A simpler fully elementary bound follows from \(a_n\ge n\) for \(n\ge1\):
 \le \frac{|K_{ij}(1)|}{2}\frac{e^{-2L(T+1/4)}}{(T+1/4)(1-e^{-2L})}
 +\frac{M_{ij}}{4L}\frac1{T-1/4},\qquad T\ge1,
 \]
-where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the second uses the integral estimate
-\(\sum_{n=T}^{\infty}(n+1/4)^{-2}\le (T-1/4)^{-1}\).
+where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the second uses a safe integral comparison
+\(\sum_{n=T}^{\infty}(n+1/4)^{-2}\le (T+1/4)^{-2}+(T+1/4)^{-1}\).
 
 **Scope warning.** This proves convergence and gives a conservative finite-basis tail estimate for the displayed anchored series. It does not prove positivity, uniformity as \(N\to\infty\) or \(c\downarrow1\), nor equality with the full physical Archimedean operator. The constants \(M_{ij}\) must be bounded or computed with certified arithmetic before the estimate can serve as a numerical certificate.
 
