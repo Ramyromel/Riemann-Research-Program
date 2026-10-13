@@ -93,14 +93,15 @@ where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the
 
 **Scope warning.** This proves convergence and gives a conservative finite-basis tail estimate for the displayed anchored series. It does not prove positivity, uniformity as \(N\to\infty\) or \(c\downarrow1\), nor equality with the full physical Archimedean operator. The constants \(M_{ij}\) must be bounded or computed with certified arithmetic before the estimate can serve as a numerical certificate.
 
-## Implementation consistency gate (new audit finding)
+## Implementation consistency gate (code-level reconciliation)
 
-A source-level cross-check found that two odd-sector implementations remain present and are both invoked by the workflow:
+The source-level discrepancy was actionable and has now been reconciled in code:
 
-- `experiments/archimedean_hankel/odd_sine_archimedean_diagnostic.py` defines `arch_matrix` with anchor `-h0 I`, endpoint value `K(1)=-2I`, and series increment `K(1)/(2a)-2L\,integrated_K`.
-- `experiments/archimedean_hankel/odd_sine_archimedean_resolvent_corrected.py` defines `archimedean_matrix` with anchor `+h0 I`, endpoint constant `+2I`, and increment `K1/(2a)+2L\,integrated_convolution`.
+- The helper `K_entry` / `convolution_entry` is the **raw sine convolution**, whose endpoint is `-2 I`.
+- In the corrected physical Fourier convention used by the spectral bridge, the kernel entering the anchored resolvent expression is `K_phys = -K_entry`, so its endpoint is `+2 I`.
+- Accordingly, the physical matrix uses anchor `+h0 I` and the resolvent increment `+1/a_n I + 2 L * integrated_K`. The diagnostic's earlier `-h0 I` and negative increment had the opposite overall sign.
+- `odd_sine_archimedean_diagnostic.py::arch_matrix` now uses the same physical-kernel convention as `odd_sine_archimedean_resolvent_corrected.py::archimedean_matrix`. The raw convolution helper and prime-dictionary code were left unchanged.
 
-The implementations share essentially the same finite exponential-integral machinery but use different anchor and series signs. The corrected bridge test imports only the second implementation; the workflow also runs `odd_sine_archimedean_bridge_audit.py`, which imports the first. These are not interchangeable implementations by declaration alone.
+A regression assertion was added to `experiments/test_odd_physical_spectral_parity_bridge.py`: for each existing test parameter pair, the two implementations must agree entrywise within (10^{-10}), before the separate parity-conjugated comparison against the direct spectral quadrature is assessed.
 
-**Disposition: RECONCILIATION REQUIRED before analytic promotion.** The numerical parity test validates the corrected module against the direct spectral quadrature for its tested cases, but it does not establish that the older diagnostic has the same convention, nor that either candidate equals the full physical operator. The next step is to derive the sign and anchor from the explicit-formula Fourier convention once, encode that derivation as a single shared implementation or explicit convention-specific wrappers, and make CI fail if the two paths disagree beyond a documented numerical tolerance. No code path should be silently removed or relabeled as proven before that derivation is complete.
-
+**Boundary of this repair:** this closes the duplicated-implementation inconsistency at source level; it does not independently prove that the sign convention follows from the full explicit-formula derivation, nor establish equality with the complete physical Archimedean operator. The spectral comparison remains truncated numerical evidence. CI must run on the new head before the change can be marked verified. No positivity theorem or Riemann Hypothesis proof follows from this repair.
