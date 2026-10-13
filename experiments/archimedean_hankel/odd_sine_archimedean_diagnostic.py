@@ -78,16 +78,27 @@ def prime_matrix(c,N):
     return (P+P.T)/2
 
 def arch_matrix(c,N,n_terms=1000):
+    """Physical odd-sector resolvent matrix in the convention used by the
+    independently assembled spectral integral.
+
+    K_entry is the raw sine convolution and has K_entry(1)=-2 I. The
+    Fourier-side physical kernel is K_phys=-K_entry, so K_phys(1)=+2 I.
+    Consequently the anchored term is +h0 I and each resolvent increment is
+    +1/a_n I + 2 L * integral(K_entry(w) exp(-2 L a_n (1-w)) dw).
+
+    Keep K_entry itself unchanged: prime-dictionary code uses that raw
+    convolution with its own explicitly defined coefficient.
+    """
     L=mp.log(c)
     h0=mp.re(mp.digamma(mp.mpf("0.25")))-mp.log(mp.pi)
-    A=-h0*mp.eye(N)
+    A=h0*mp.eye(N)
     for n in range(n_terms):
         a=mp.mpf(n)+mp.mpf("0.25")
         decay=2*L*a
         for i in range(1,N+1):
             for j in range(1,N+1):
-                K1=-2 if i==j else 0
-                A[i-1,j-1]+=K1/(2*a)-L*2*integrated_K(i,j,decay)
+                K1=2 if i==j else 0  # K_phys(1)=-K_entry(1)
+                A[i-1,j-1]+=K1/(2*a)+2*L*integrated_K(i,j,decay)
     return (A+A.T)/2
 
 def audit(c=20,N=6,n_terms=1000,dps=50):
