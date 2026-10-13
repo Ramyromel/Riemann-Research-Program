@@ -93,3 +93,14 @@ where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the
 
 **Scope warning.** This proves convergence and gives a conservative finite-basis tail estimate for the displayed anchored series. It does not prove positivity, uniformity as \(N\to\infty\) or \(c\downarrow1\), nor equality with the full physical Archimedean operator. The constants \(M_{ij}\) must be bounded or computed with certified arithmetic before the estimate can serve as a numerical certificate.
 
+## Implementation consistency gate (new audit finding)
+
+A source-level cross-check found that two odd-sector implementations remain present and are both invoked by the workflow:
+
+- `experiments/archimedean_hankel/odd_sine_archimedean_diagnostic.py` defines `arch_matrix` with anchor `-h0 I`, endpoint value `K(1)=-2I`, and series increment `K(1)/(2a)-2L\,integrated_K`.
+- `experiments/archimedean_hankel/odd_sine_archimedean_resolvent_corrected.py` defines `archimedean_matrix` with anchor `+h0 I`, endpoint constant `+2I`, and increment `K1/(2a)+2L\,integrated_convolution`.
+
+The implementations share essentially the same finite exponential-integral machinery but use different anchor and series signs. The corrected bridge test imports only the second implementation; the workflow also runs `odd_sine_archimedean_bridge_audit.py`, which imports the first. These are not interchangeable implementations by declaration alone.
+
+**Disposition: RECONCILIATION REQUIRED before analytic promotion.** The numerical parity test validates the corrected module against the direct spectral quadrature for its tested cases, but it does not establish that the older diagnostic has the same convention, nor that either candidate equals the full physical operator. The next step is to derive the sign and anchor from the explicit-formula Fourier convention once, encode that derivation as a single shared implementation or explicit convention-specific wrappers, and make CI fail if the two paths disagree beyond a documented numerical tolerance. No code path should be silently removed or relabeled as proven before that derivation is complete.
+
