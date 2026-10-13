@@ -97,8 +97,8 @@ where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the
 
 The source-level discrepancy was actionable and has now been reconciled in code:
 
-- The helper `K_entry` / `convolution_entry` is the **raw sine convolution**, whose endpoint is `-2 I`.
-- In the corrected physical Fourier convention used by the spectral bridge, the kernel entering the anchored resolvent expression is `K_phys = -K_entry`, so its endpoint is `+2 I`.
+- The helper `K_entry` / `convolution_entry` is the **raw sine convolution**, whose endpoint is `-I`.
+- In the corrected physical Fourier convention used by the spectral bridge, the kernel entering the anchored resolvent expression is `K_phys = -2 K_entry`, so its endpoint is `+2 I`.
 - Accordingly, the physical matrix uses anchor `+h0 I` and the resolvent increment `+1/a_n I + 2 L * integrated_K`. The diagnostic's earlier `-h0 I` and negative increment had the opposite overall sign.
 - `odd_sine_archimedean_diagnostic.py::arch_matrix` now uses the same physical-kernel convention as `odd_sine_archimedean_resolvent_corrected.py::archimedean_matrix`. The raw convolution helper and prime-dictionary code were left unchanged.
 
