@@ -86,7 +86,7 @@ A simpler fully elementary bound follows from \(a_n\ge n\) for \(n\ge1\):
 \[
 \sum_{n=T}^{\infty}|B_n|
 \le \frac{|K_{ij}(1)|}{2}\frac{e^{-2L(T+1/4)}}{(T+1/4)(1-e^{-2L})}
-+\frac{M_{ij}}{4L}\frac1{T-1/4},\qquad T\ge1,
++\frac{M_{ij}}{4L}\left((T+1/4)^{-2}+(T+1/4)^{-1}\right),\qquad T\ge1,
 \]
 where the first term uses \(a_n\ge T+1/4\) and a geometric-series bound, and the second uses a safe integral comparison
 \(\sum_{n=T}^{\infty}(n+1/4)^{-2}\le (T+1/4)^{-2}+(T+1/4)^{-1}\).
