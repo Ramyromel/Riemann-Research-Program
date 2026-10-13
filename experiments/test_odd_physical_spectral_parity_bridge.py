@@ -2,6 +2,7 @@ import sys
 sys.path.insert(0, "experiments/archimedean_hankel")
 
 from odd_sine_archimedean_resolvent_corrected import archimedean_matrix
+from odd_sine_archimedean_diagnostic import arch_matrix as diagnostic_arch_matrix
 from direct_physical_spectral_archimedean_audit import spectral_archimedean_matrix
 import numpy as np
 
@@ -12,6 +13,13 @@ def check(c, n, R=300, nr=30001, terms=2000):
     odd = np.asarray(
         archimedean_matrix(c, n, n_terms=terms, dps=50).tolist(),
         dtype=float,
+    )
+    diagnostic = np.asarray(
+        diagnostic_arch_matrix(c, n, n_terms=terms).tolist(), dtype=float
+    )
+    implementation_gap = np.max(np.abs(diagnostic - odd))
+    assert implementation_gap < 1e-10, (
+        f"odd Archimedean implementations disagree: max gap={implementation_gap:.3e}"
     )
     D = np.diag([(-1) ** k for k in range(1, n + 1)])
     transported = D @ odd @ D
