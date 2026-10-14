@@ -2,7 +2,7 @@ import sys
 sys.path.insert(0, "experiments/archimedean_hankel")
 
 from odd_sine_archimedean_resolvent_corrected import archimedean_matrix
-from odd_sine_archimedean_diagnostic import arch_matrix as diagnostic_arch_matrix, K_entry
+from odd_sine_archimedean_diagnostic import arch_matrix as diagnostic_arch_matrix, K_entry, integrated_K
 import mpmath as mp
 from direct_physical_spectral_archimedean_audit import spectral_archimedean_matrix
 import numpy as np
@@ -26,6 +26,18 @@ def check(c, n, R=300, nr=30001, terms=2000):
     assert endpoint_gap < mp.mpf("1e-40"), (
         f"raw convolution endpoint mismatch: max gap={mp.nstr(endpoint_gap, 8)}"
     )
+    decay = mp.mpf("3.25")
+    for i, j in ((1, 1), (1, 2), (2, 3)):
+        direct_integral = mp.quad(
+            lambda w: K_entry(i, j, w) * mp.exp(-decay * (1 - w)),
+            [0, 1],
+        )
+        closed_integral = integrated_K(i, j, decay)
+        assert abs(direct_integral - closed_integral) < mp.mpf("1e-35"), (
+            f"integrated convolution mismatch at {(i, j)}: "
+            f"direct={mp.nstr(direct_integral, 8)} "
+            f"closed={mp.nstr(closed_integral, 8)}"
+        )
     implementation_gap = np.max(np.abs(diagnostic - odd))
     assert implementation_gap < 1e-10, (
         f"odd Archimedean implementations disagree: max gap={implementation_gap:.3e}"
