@@ -3,12 +3,14 @@
 This is derived from the same cutoff-free resolvent identity used by the
 existing cosine implementation, but with the physical odd sine basis.
 
-For psi_k(w)=sqrt(2) sin(2*pi*k*w), k>=1,
-K_ij(1)=int_0^1 psi_i(t) psi_j(1-t) dt = -2 delta_ij.
-Thus the anchor h_+(0)/2*K(1) becomes -h_+(0) I.
+For psi_k(w)=sqrt(2) sin(2*pi*k*w), k>=1, the raw convolution
+B_ij(w)=int_0^w psi_i(t) psi_j(w-t) dt has endpoint
+B_ij(1)=-delta_ij. The physical Fourier-side kernel used by the corrected
+resolvent convention is K_phys=-2 B, hence K_phys(1)=+2 I.
 
-The script deliberately labels the result a candidate odd Archimedean
-restriction until the physical normalization/pole derivation is closed.
+This module keeps B as the raw convolution helper and applies the physical
+normalization only in arch_matrix. The full explicit-formula/pole bridge
+remains open.
 """
 
 from __future__ import annotations
