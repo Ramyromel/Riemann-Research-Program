@@ -74,18 +74,20 @@ This value is a property of the arithmetic block alone. It is neither a proof no
 
 ## 4. Archimedean parity check
 
-For the localized convolution
-[
-K_{ij}(omega)=
-int_0^omega
-psi_i(t)psi_j(omega-t),dt,
-]
-the odd basis satisfies
-[
-K_{ij}(1)=-2delta_{ij}.
-]
+For the raw localized convolution
+\[
+B_{ij}(\omega)=
+\int_0^\omega
+\psi_i(t)\psi_j(\omega-t)\,dt,
+\qquad \psi_k(t)=\sqrt2\sin(2\pi kt),
+\]
+the endpoint is
+\[
+B_{ij}(1)=-\delta_{ij},
+\]
+because \(\psi_j(1-t)=-\psi_j(t)\) and the normalized sine functions are orthonormal on \((0,1)\).
 
-Consequently the anchor term in the existing resolvent identity changes sign relative to the even cosine sector. This has been isolated in a separate diagnostic and is **not yet identified with the complete physical odd operator**.
+The corrected physical Fourier-side resolvent convention uses \(K_{\rm phys}=-2B\), so \(K_{\rm phys}(1)=+2I\). This fixes the raw-convolution endpoint and factor-of-two bookkeeping; it does **not** by itself derive the complete physical odd operator from the explicit formula.
 
 ## 5. Remaining load-bearing bridge
 
